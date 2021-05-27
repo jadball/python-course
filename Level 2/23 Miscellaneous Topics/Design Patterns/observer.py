@@ -4,18 +4,20 @@
 #
 ############################################################
 
-from abc import ABCMeta, abstractmethod
+from abc import abstractmethod
+
 
 class IObserver(object):
     @abstractmethod
     def Callback(self, state): pass
 
+
 class ISubject(object):
     @abstractmethod
-    def Register(self, observer): pass 
+    def Register(self, observer): pass
 
     @abstractmethod
-    def UnRegister(self, observer): pass 
+    def UnRegister(self, observer): pass
 
     @abstractmethod
     def Notify(self): pass
@@ -27,27 +29,27 @@ class ConcreteSubject(ISubject):
         self.state = 0.0
 
     def ChangeState(self, state):
-        if(state != self.state):
+        if (state != self.state):
             self.state = state
             self.Notify()
-        
-        
+
     def Register(self, observer):
         self.observers.append(observer)
-    
+
     def UnRegister(self, thisObserver):
         for observer in self.observers:
-            if(thisObserver == observer):
+            if (thisObserver == observer):
                 self.observers.remove(thisObserver)
-    
+
     def Notify(self):
-        for observer in self.observers:        
+        for observer in self.observers:
             observer.Callback(self.state);
+
 
 class ConcreteObserver(IObserver):
     def __init__(self, id):
         self.id = id
-         
+
     def Callback(self, state):
         print("observer", self.id, "sees state change to:", state)
 
@@ -58,7 +60,7 @@ publisher = ConcreteSubject()
 subscriber1 = ConcreteObserver("1")
 subscriber2 = ConcreteObserver("2")
 subscriber3 = ConcreteObserver("3")
-    
+
 publisher.Register(subscriber1)
 publisher.Register(subscriber2)
 publisher.Register(subscriber3)

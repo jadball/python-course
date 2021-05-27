@@ -1,21 +1,20 @@
 import logging
-import datetime
-import time
+
 
 class Extras(object):
     def __init__(self, ip, user):
         self.ip = ip
         self.user = user
+
     def get(self):
         return self.__dict__
-        
 
 
 LOG_FILENAME = 'logs/example2.log'
-levels = (logging.DEBUG, 
-          logging.INFO, 
-          logging.WARNING, 
-          logging.ERROR, 
+levels = (logging.DEBUG,
+          logging.INFO,
+          logging.WARNING,
+          logging.ERROR,
           logging.CRITICAL)
 logging.basicConfig(filename=LOG_FILENAME,
                     level=logging.DEBUG,

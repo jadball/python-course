@@ -1,8 +1,8 @@
 import sys
+
 from single_step import s
 
 s('cd myrepo')
-
 
 s('git checkout mybranch')
 s('echo This was written from the mybranch branch > conflict_file')
@@ -18,12 +18,7 @@ s('git push -u origin master')
 
 s('git merge mybranch')
 
-
 if sys.platform == "win32":
     s('type conflict_file')
 else:
-    s('cat conflict_file')    
-
-
-
-
+    s('cat conflict_file')

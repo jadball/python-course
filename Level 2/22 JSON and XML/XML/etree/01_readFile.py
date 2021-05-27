@@ -11,5 +11,3 @@ tree = parse(filename)
 root = tree.getroot()
 print(root)
 dump(tree)
-
-

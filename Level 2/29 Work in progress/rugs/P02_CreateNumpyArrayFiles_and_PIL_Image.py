@@ -4,12 +4,12 @@ Numpy arrays corresponding to the images (saved in ".npy" files)
 Optionally, the routine can produce an image.
 '''
 
-import numpy as np
+import re
 import sys
-import re
+
 import matplotlib.pyplot as plt
-import re
-from scipy import ndimage
+import numpy as np
+
 
 def convertArrayToColor(data):
     rows = len(data)
@@ -17,26 +17,39 @@ def convertArrayToColor(data):
     for r in range(rows):
         for c in range(cols):
             ch = data[r][c][0]
-            if ch == 'd': data[r][c] = [101,  67,  33]
-            elif ch == 'o': data[r][c] = [255, 165,   0]
-            elif ch == 'p': data[r][c] = [255, 182, 193]
-            elif ch == 'l': data[r][c] = [152, 251, 152]
-            elif ch == 'b': data[r][c] = [185, 185, 185]
-            elif ch == 'w': data[r][c] = [255, 255, 255]
-            elif ch == 'g': data[r][c] = [ 34, 139,  34]
-            elif ch == 'y': data[r][c] = [255, 255,   0]
-            elif ch == 't': data[r][c] = [  0,   0, 255]
-            elif ch == 'm': data[r][c] = [165,  42,  42]
-            elif ch == 'x': data[r][c] = [  0,   0,   0] # black for don't know
+            if ch == 'd':
+                data[r][c] = [101, 67, 33]
+            elif ch == 'o':
+                data[r][c] = [255, 165, 0]
+            elif ch == 'p':
+                data[r][c] = [255, 182, 193]
+            elif ch == 'l':
+                data[r][c] = [152, 251, 152]
+            elif ch == 'b':
+                data[r][c] = [185, 185, 185]
+            elif ch == 'w':
+                data[r][c] = [255, 255, 255]
+            elif ch == 'g':
+                data[r][c] = [34, 139, 34]
+            elif ch == 'y':
+                data[r][c] = [255, 255, 0]
+            elif ch == 't':
+                data[r][c] = [0, 0, 255]
+            elif ch == 'm':
+                data[r][c] = [165, 42, 42]
+            elif ch == 'x':
+                data[r][c] = [0, 0, 0]  # black for don't know
             else:
                 print(f"error on row={r}, col={c}")
     return data
 
+
 def convertToNumpyArray(line):
-    array = np.empty((0,1), dtype=object)
+    array = np.empty((0, 1), dtype=object)
     for c in line:
         array = np.vstack([array, [c]])
     return array
+
 
 def readLines(filename):
     global FIG, COLS, TYPE, FLIP, X, Y
@@ -65,6 +78,7 @@ def readLines(filename):
         f.close()
     return result
 
+
 def computeNumpyArray(filename):
     lines = readLines(filename)
     ROWS = len(lines)
@@ -77,10 +91,11 @@ def computeNumpyArray(filename):
     data = np.flip(data, axis=0)  # data is from RHS of rug
     if FLIP == "TRUE":
         data = np.flip(data, axis=1)
-    data = np.transpose(data, axes=(1,0,2))
+    data = np.transpose(data, axes=(1, 0, 2))
     np.save(f"data/{FIG}", data)
     print(f"data/{FIG}: {data.shape}")
     return data
+
 
 def plotAndSaveImage(data):
     plt.imshow(data, cmap="gray")
@@ -88,9 +103,10 @@ def plotAndSaveImage(data):
     plt.gcf().suptitle(f"{FIG}")
     plt.show()
 
+
 np.set_printoptions(threshold=sys.maxsize)
 
 for RUG in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11):
-#for RUG in (3, 4, 10):
+    # for RUG in (3, 4, 10):
     data = computeNumpyArray(f"data/rug{RUG}.norm")
     # plotAndSaveImage(data)

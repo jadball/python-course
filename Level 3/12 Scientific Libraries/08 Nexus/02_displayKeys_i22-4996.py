@@ -1,4 +1,3 @@
-import os
 import h5py
 
 f = h5py.File("data/i22-4996.nxs", "r")

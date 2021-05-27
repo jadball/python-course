@@ -1,5 +1,7 @@
-import subprocess, sys
+import subprocess
+import sys
 from threading import Thread
+
 
 # python executable is given by: sys.executable
 
@@ -9,10 +11,11 @@ def startServer():
     serverThread = Thread(target=subprocess.call, args=(params,))
     serverThread.start()
 
+
 def startClients(n):
     for i in range(n):
         subprocess.call([sys.executable, "client.py"])
-   
+
+
 startServer()
 startClients(20)
-

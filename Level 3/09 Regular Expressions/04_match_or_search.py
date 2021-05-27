@@ -17,5 +17,3 @@ match = pattern.search(test)
 print(match.group())
 
 1
-
-

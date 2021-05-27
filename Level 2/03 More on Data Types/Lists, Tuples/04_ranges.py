@@ -9,7 +9,6 @@ print(type(z))
 print(z)
 
 x = list(range(10))
-y = list(range(20,0,-3))
+y = list(range(20, 0, -3))
 print(x)
 print(y)
-

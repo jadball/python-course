@@ -4,7 +4,5 @@
 # unit tests (see 03)
 
 import nose
+
 nose.run()
-    
-
-

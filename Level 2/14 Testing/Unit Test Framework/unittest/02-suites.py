@@ -1,5 +1,6 @@
-from Point import *
 import unittest
+
+from Point import *
 
 
 class testPoint(unittest.TestCase):
@@ -22,7 +23,7 @@ class testPoint(unittest.TestCase):
         """moveBy test(1)"""
         self.point.moveBy(5, 2)
         self.assertEqual("8,6", self.point.display())
-        
+
     def testMoveBy5and2version2(self):
         """moveBy test(2)"""
         self.point.moveBy(5, 2)
@@ -36,6 +37,7 @@ class testPoint(unittest.TestCase):
         """distance test(2)"""
         self.assertTrue(5.1 == self.point.get_distance())
 
+
 def suite():
     suite = unittest.TestSuite()
     suite.addTest(testPoint('testConstructor'))
@@ -45,14 +47,12 @@ def suite():
     return suite
 
 
-
 if __name__ == '__main__':
-#    import doctest
+    #    import doctest
 
     mySuite = suite()
-#    unittest.TextTestRunner(verbosity=0).run(mySuite)
-#   unittest.TextTestRunner(verbosity=1).run(mySuite)
+    #    unittest.TextTestRunner(verbosity=0).run(mySuite)
+    #   unittest.TextTestRunner(verbosity=1).run(mySuite)
     unittest.TextTestRunner(verbosity=2).run(mySuite)
 
     1
-    

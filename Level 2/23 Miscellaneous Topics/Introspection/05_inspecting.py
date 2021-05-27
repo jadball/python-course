@@ -1,9 +1,9 @@
-import inspect, os
+import inspect
+import os
 import struct
 
 # determine the location of the imported module
 print(inspect.getabsfile(struct))
-
 
 # determine the location of this script
 filename = inspect.getframeinfo(inspect.currentframe()).filename

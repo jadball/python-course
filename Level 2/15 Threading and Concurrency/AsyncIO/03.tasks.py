@@ -1,10 +1,12 @@
 import asyncio
 import time
 
+
 async def doit(delay):
     # yield immediately
     await asyncio.sleep(delay)
     print(f"message delayed by {delay} secs")
+
 
 # note this routine runs all doit() calls() concurrently
 async def main():
@@ -23,5 +25,5 @@ async def main():
     await task3
     print(f"finished at {time.strftime('%X')}")
 
-asyncio.run(main())
 
+asyncio.run(main())

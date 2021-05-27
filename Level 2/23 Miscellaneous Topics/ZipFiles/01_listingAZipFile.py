@@ -1,5 +1,5 @@
-import zipfile
 import time
+import zipfile
 
 # note zlib is used for compression
 fileName = "zips/Perl.zip"
@@ -10,7 +10,7 @@ if zipfile.is_zipfile(fileName):
     print(fileName + " is a valid zip")
 else:
     print(fileName + " is NOT a valid zip")
-    
+
 # list filenames
 for name in theZip.namelist():
     print(name)
@@ -34,13 +34,9 @@ def formatTime(t):
     t.append(0)
     return time.strftime("%Y-%m-%d %H:%M:%S", tuple(t))
 
-    
+
 # list file information
 print("{0:32} {1:10} {2}".format("filename", "date+time", "file size"))
 print("{0:32} {1:10} {2}".format("========", "=========", "========="))
 for info in theZip.infolist():
     print("{0:32} {1:10} {2:6d}".format(info.filename, formatTime(info.date_time), info.file_size))
-
-    
-    
-    

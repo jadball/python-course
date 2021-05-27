@@ -8,10 +8,12 @@ import multiprocessing as mp
 
 N = 20
 
+
 def fn(connection, results, N):
     for n in range(N):
-        results.append(n*n)
+        results.append(n * n)
     connection.send(results)
+
 
 if __name__ == '__main__':
     pipe_parent, pipe_child = mp.Pipe()
@@ -21,4 +23,3 @@ if __name__ == '__main__':
     reply = pipe_parent.recv()
     p.join()
     print(reply[:])
-    

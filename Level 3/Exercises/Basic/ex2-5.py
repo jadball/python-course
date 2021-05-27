@@ -7,6 +7,5 @@ converge to a number?
 a, b = 0, 1
 
 for n in range(200):
-    print(a/b) 
-    a, b = b, a+b
-    
+    print(a / b)
+    a, b = b, a + b

@@ -1,16 +1,20 @@
-from sympy import *
 import sympy
+from sympy import *
+
 a, b = sympy.symbols('a, b')
 
 # print 0.7 as a fraction 
 a = Rational(7, 10)
-print a
+print
+a
 
 # print an expression as a fraction 
-b = Rational (45 , 67)
-print a * b
-print a + b
+b = Rational(45, 67)
+print
+a * b
+print
+a + b
 
 # print same data as a float
-print (float)(a + b)
-print (a + b).evalf(27) # 27 decimal places
+print(float)(a + b)
+print(a + b).evalf(27)  # 27 decimal places

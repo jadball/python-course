@@ -4,11 +4,13 @@
 #
 ############################################################
 
+import cgitb
 import http.server
-import cgi, random, sys
-import cgitb, urllib.parse
 import json
+import urllib.parse
+
 cgitb.enable()
+
 
 class Handler(http.server.BaseHTTPRequestHandler):
     def incrementBy(self, data, n):
@@ -22,11 +24,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         print(("request: ", self.requestline))
-        parsedUrl = urllib.parse.urlparse(self.path) # returns a 6-tuple
+        parsedUrl = urllib.parse.urlparse(self.path)  # returns a 6-tuple
         queryString = parsedUrl[4]  # query string is 5th component
         print(("queryString:", queryString))
         data = urllib.parse.parse_qs(queryString)
-        
+
         # the query string will be a dictionary
         # keys are the ids
         # values are lists of the values assigned to the ids
@@ -37,7 +39,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         except:
             self.send_error(404, "Error in query string: non numeric values found")
             return
-            
+
         # convert Python dictionary to JSON
         jsonString = json.dumps(data)
 
@@ -45,16 +47,16 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-type", "application/json")
         self.end_headers()
-            
+
         jsonAsBytes = jsonString.encode("UTF-8")
         self.wfile.write(jsonAsBytes)
+
 
 PORT = 8002
 SERVER = "localhost"
 httpd = http.server.HTTPServer((SERVER, PORT), Handler)
 print(("serving at port", PORT))
 httpd.serve_forever()
-
 
 """
 try the following URL's

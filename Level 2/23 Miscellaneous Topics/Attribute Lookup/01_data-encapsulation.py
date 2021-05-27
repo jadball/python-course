@@ -3,12 +3,14 @@
 # and this doesn't really work
 
 class Point:
-    def __init__(self,x0,y0):
+    def __init__(self, x0, y0):
         self.__x = x0
-        self.__y = y0        
-    
-# create object
-point = Point( 50, 300)
+        self.__y = y0
+
+    # create object
+
+
+point = Point(50, 300)
 print(point.__dict__)
 
 # try to access private data
@@ -23,6 +25,5 @@ try:
     print(point._Point__y)
 except:
     print("statement failed")
-
 
 1

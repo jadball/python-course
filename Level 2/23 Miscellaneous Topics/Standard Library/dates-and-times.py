@@ -4,8 +4,8 @@
 #
 ############################################################
 
-import time
 import datetime
+import time
 
 # localtime returns a 9-tuple
 t = time.localtime()

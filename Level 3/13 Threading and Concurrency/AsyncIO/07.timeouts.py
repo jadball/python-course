@@ -1,5 +1,5 @@
 import asyncio
-import time
+
 
 async def say_after(delay, what):
     await asyncio.sleep(delay)
@@ -7,6 +7,8 @@ async def say_after(delay, what):
 
 
 timeout = 4
+
+
 async def main():
     try:
         await asyncio.wait_for(say_after(1, "waiting for 1 sec"), timeout)
@@ -14,6 +16,6 @@ async def main():
         await asyncio.wait_for(say_after(5, "waiting for 5 sec"), timeout)
     except asyncio.TimeoutError as e:
         print("timeout", e)
-        
-asyncio.run(main())
 
+
+asyncio.run(main())

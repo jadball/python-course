@@ -1,19 +1,22 @@
-from threading import Thread
-from flask import Flask, render_template
 import webbrowser
+from threading import Thread
+
+from flask import Flask, render_template
+
 import wait
 
 # This example uses 'Jinja2' templates 
 
 app = Flask(__name__)
 
-class Server:    
+
+class Server:
     def __init__(self, app):
         print("serving on localhost, port 5000")
         app.debug = True
         app.run(use_reloader=False)
         Server.app = app
-        
+
     @app.route('/hello/')
     @app.route('/hello/<name>')
     def hello(name=None):
@@ -29,7 +32,6 @@ def client():
 
 
 Thread(target=client).start()
-
 
 if __name__ == "__main__":
     Server(app)

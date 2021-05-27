@@ -5,6 +5,7 @@
 # the SWIG interface file instead.
 
 from sys import version_info as _swig_python_version_info
+
 if _swig_python_version_info >= (2, 7, 0):
     def swig_import_helper():
         import importlib
@@ -14,6 +15,8 @@ if _swig_python_version_info >= (2, 7, 0):
             return importlib.import_module(mname)
         except ImportError:
             return importlib.import_module('_myexample')
+
+
     _myexample = swig_import_helper()
     del swig_import_helper
 elif _swig_python_version_info >= (2, 6, 0):
@@ -32,6 +35,8 @@ elif _swig_python_version_info >= (2, 6, 0):
             if fp is not None:
                 fp.close()
         return _mod
+
+
     _myexample = swig_import_helper()
     del swig_import_helper
 else:
@@ -47,6 +52,7 @@ try:
     import builtins as __builtin__
 except ImportError:
     import __builtin__
+
 
 def _swig_setattr_nondynamic(self, class_type, name, value, static=1):
     if (name == "thisown"):
@@ -87,13 +93,17 @@ def _swig_repr(self):
         strthis = ""
     return "<%s.%s; %s >" % (self.__class__.__module__, self.__class__.__name__, strthis,)
 
+
 try:
     _object = object
     _newclass = 1
 except __builtin__.Exception:
     class _object:
         pass
+
+
     _newclass = 0
+
 
 class SwigPyIterator(_object):
     __swig_setmethods__ = {}
@@ -103,6 +113,7 @@ class SwigPyIterator(_object):
 
     def __init__(self, *args, **kwargs):
         raise AttributeError("No constructor defined - class is abstract")
+
     __repr__ = _swig_repr
     __swig_destroy__ = _myexample.delete_SwigPyIterator
     __del__ = lambda self: None
@@ -154,10 +165,14 @@ class SwigPyIterator(_object):
 
     def __sub__(self, *args):
         return _myexample.SwigPyIterator___sub__(self, *args)
+
     def __iter__(self):
         return self
+
+
 SwigPyIterator_swigregister = _myexample.SwigPyIterator_swigregister
 SwigPyIterator_swigregister(SwigPyIterator)
+
 
 class IntVector(_object):
     __swig_setmethods__ = {}
@@ -168,6 +183,7 @@ class IntVector(_object):
 
     def iterator(self):
         return _myexample.IntVector_iterator(self)
+
     def __iter__(self):
         return self.iterator()
 
@@ -267,10 +283,14 @@ class IntVector(_object):
 
     def capacity(self):
         return _myexample.IntVector_capacity(self)
+
     __swig_destroy__ = _myexample.delete_IntVector
     __del__ = lambda self: None
+
+
 IntVector_swigregister = _myexample.IntVector_swigregister
 IntVector_swigregister(IntVector)
+
 
 class DoubleVector(_object):
     __swig_setmethods__ = {}
@@ -281,6 +301,7 @@ class DoubleVector(_object):
 
     def iterator(self):
         return _myexample.DoubleVector_iterator(self)
+
     def __iter__(self):
         return self.iterator()
 
@@ -380,27 +401,39 @@ class DoubleVector(_object):
 
     def capacity(self):
         return _myexample.DoubleVector_capacity(self)
+
     __swig_destroy__ = _myexample.delete_DoubleVector
     __del__ = lambda self: None
+
+
 DoubleVector_swigregister = _myexample.DoubleVector_swigregister
 DoubleVector_swigregister(DoubleVector)
 
 
 def say_hello(name):
     return _myexample.say_hello(name)
+
+
 say_hello = _myexample.say_hello
+
 
 def say_goodbye(name):
     return _myexample.say_goodbye(name)
+
+
 say_goodbye = _myexample.say_goodbye
+
 
 def average(v):
     return _myexample.average(v)
+
+
 average = _myexample.average
+
 
 def average2(v):
     return _myexample.average2(v)
+
+
 average2 = _myexample.average2
 # This file is compatible with both classic and new-style classes.
-
-

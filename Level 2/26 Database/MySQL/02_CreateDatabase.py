@@ -1,6 +1,6 @@
 import mysql.connector
 
-from mysql.connector import connect, Error
+from mysql.connector import Error
 
 mydb = mysql.connector.connect(
     host="localhost",
@@ -11,10 +11,9 @@ mydb = mysql.connector.connect(
 # sys admin needs to issue the following:
 # GRANT ALL PRIVILEGES ON `PYTHON`.* TO 'user1'@'localhost';
 
-print(mydb) 
+print(mydb)
 mycursor = mydb.cursor()
 try:
     mycursor.execute("CREATE DATABASE PYTHON")
 except Error as e:
     print(e)
-

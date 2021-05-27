@@ -11,5 +11,3 @@ def square(n):
 square(5)
 square(6)
 square(7)
-
-

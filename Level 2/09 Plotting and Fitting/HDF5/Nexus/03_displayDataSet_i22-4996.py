@@ -1,6 +1,6 @@
 import h5py
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 from scipy.signal import savgol_filter
 
 # open Nexus file
@@ -16,12 +16,11 @@ data = ds["data"][()]
 print(data.shape)
 
 # extract data as 1D array
-X = data[0,0]
-size = X.shape[0] 
+X = data[0, 0]
+size = X.shape[0]
 Y = np.arange(size)
 
-Xhat = savgol_filter(X, 51, 3) # window size 51, polynomial order 3
+Xhat = savgol_filter(X, 51, 3)  # window size 51, polynomial order 3
 plt.plot(Y, X)
 plt.plot(Y, Xhat)
 plt.show()
-

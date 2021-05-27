@@ -23,7 +23,7 @@ Code to generate the following document:
 ns = "http://www.demo.com/book"
 uri = "{" + ns + "}"
 _namespace_map[ns] = 'book'
-            
+
 # define elements
 root = Element(uri + "book")
 title = Element(uri + "title")
@@ -50,7 +50,5 @@ root.append(pubdate)
 root.append(cost)
 
 # write to file
-tree =  ElementTree(root)
+tree = ElementTree(root)
 tree.write("xml/new_book.xml")
-
-

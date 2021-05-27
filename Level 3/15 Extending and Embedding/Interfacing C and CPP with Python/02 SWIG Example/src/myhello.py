@@ -5,6 +5,7 @@
 # the SWIG interface file instead.
 
 from sys import version_info as _swig_python_version_info
+
 if _swig_python_version_info >= (2, 7, 0):
     def swig_import_helper():
         import importlib
@@ -14,6 +15,8 @@ if _swig_python_version_info >= (2, 7, 0):
             return importlib.import_module(mname)
         except ImportError:
             return importlib.import_module('_myhello')
+
+
     _myhello = swig_import_helper()
     del swig_import_helper
 elif _swig_python_version_info >= (2, 6, 0):
@@ -32,6 +35,8 @@ elif _swig_python_version_info >= (2, 6, 0):
             if fp is not None:
                 fp.close()
         return _mod
+
+
     _myhello = swig_import_helper()
     del swig_import_helper
 else:
@@ -47,6 +52,7 @@ try:
     import builtins as __builtin__
 except ImportError:
     import __builtin__
+
 
 def _swig_setattr_nondynamic(self, class_type, name, value, static=1):
     if (name == "thisown"):
@@ -87,22 +93,28 @@ def _swig_repr(self):
         strthis = ""
     return "<%s.%s; %s >" % (self.__class__.__module__, self.__class__.__name__, strthis,)
 
+
 try:
     _object = object
     _newclass = 1
 except __builtin__.Exception:
     class _object:
         pass
+
+
     _newclass = 0
 
 
 def say_hello(name):
     return _myhello.say_hello(name)
+
+
 say_hello = _myhello.say_hello
+
 
 def say_goodbye(name):
     return _myhello.say_goodbye(name)
+
+
 say_goodbye = _myhello.say_goodbye
 # This file is compatible with both classic and new-style classes.
-
-

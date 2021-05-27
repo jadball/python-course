@@ -1,41 +1,41 @@
-from threading import Thread
-from flask import Flask, render_template, request
 import webbrowser
+from threading import Thread
+
+from flask import Flask, render_template, request
+
 import wait
-
-
 
 app = Flask(__name__)
 
+
 class Server:
-    loginTable = { 
-                   'tom' : 'mot',
-                   'sue' : 'eus',
-                   'jim' : 'mij'
-                  }
-    
+    loginTable = {
+        'tom': 'mot',
+        'sue': 'eus',
+        'jim': 'mij'
+    }
+
     def start(app):
         print("serving on localhost, port 5000")
         app.debug = True
         app.run(use_reloader=False)
 
     def is_valid_login(username, password):
-        if username in Server.loginTable: 
+        if username in Server.loginTable:
             return Server.loginTable[username] == password
         else:
             return False
-    
+
     def log_the_user_in(name):
         return render_template('successful_login.html', name=name)
-    
+
     def dont_log_the_user_in(name):
         return render_template('unsuccessful_login.html', name=name)
-    
-    
+
     @app.route('/')
     def try_to_login(name=None):
         return render_template('try_to_login.html', name=name)
-    
+
     @app.route('/login', methods=['POST', 'GET'])
     def login():
         if request.method == 'POST':
@@ -60,6 +60,7 @@ def client():
     browser.open(f'http://localhost:5000/login?username=sue&password=incorrect')
     browser.open(f'http://localhost:5000/login?giberish')
     browser.open(f'http://localhost:5000/')
+
 
 Thread(target=client).start()
 

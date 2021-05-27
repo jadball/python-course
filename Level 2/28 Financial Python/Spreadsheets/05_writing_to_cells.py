@@ -1,6 +1,7 @@
+import datetime
+
 from openpyxl import Workbook
 from openpyxl.utils import get_column_letter
-import datetime
 
 wb = Workbook()
 ws = wb.active
@@ -20,12 +21,12 @@ c.value = 44
 #    if iterable is a dict: values are assigned to the columns indicated by the keys
 
 # append a list 5 times (rows 1-5)
-for x in range(5):    
+for x in range(5):
     ws.append(list(range(25, 60, 3)))
 # append a dict 5 times (rows 6-10)
-for x in range(5):    
-    ws.append({ x:x**2 for x in range(2, 20, 3)}) # appending in cols 2, 5, 8, 11, 14, 17
- 
+for x in range(5):
+    ws.append({x: x ** 2 for x in range(2, 20, 3)})  # appending in cols 2, 5, 8, 11, 14, 17
+
 # now add items at specific rows and cols
 for row in range(20, 30):
     for col in range(1, 10):

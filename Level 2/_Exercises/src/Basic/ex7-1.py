@@ -10,5 +10,4 @@ with open("data/zen.txt", "r") as f:
     text = f.read()
     print(f"characters = {len(text)}")
     print(f"words = {len(text.split())}")
-    print(f"lines = {len(text.split(chr(10)))-1}")
-
+    print(f"lines = {len(text.split(chr(10))) - 1}")

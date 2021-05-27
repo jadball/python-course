@@ -20,7 +20,7 @@ pattern = r"""^(           # capture-1
                  (\D+)     # capture-8
                )$"""
 compiledPattern = re.compile(pattern, re.VERBOSE)
-             
+
 result = compiledPattern.search(string)
 
 # print individual captures
@@ -29,6 +29,6 @@ print(result.group(2))
 print(result.group(3))
 
 for i, group in enumerate(result.groups()):
-    print(i+1, group)
+    print(i + 1, group)
 
 1

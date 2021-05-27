@@ -6,6 +6,5 @@ of the Fibonacci sequence.
 a, b = 0, 1
 
 for n in range(20):
-    print(f"{a}", end=" ") 
-    a, b = b, a+b
-    
+    print(f"{a}", end=" ")
+    a, b = b, a + b

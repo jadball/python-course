@@ -4,10 +4,10 @@ import numpy as np
 bp.output_file("html/grid-layout.html")
 
 X = np.arange(0, 20, 2)
-Y1 = 50-X**2
-Y2 = X**3
-Y3 = abs(X-5)
-Y4 = X**2
+Y1 = 50 - X ** 2
+Y2 = X ** 3
+Y3 = abs(X - 5)
+Y4 = X ** 2
 
 fig1 = bp.figure(background_fill_color="#fafafa")
 fig1.circle(X, Y1, size=12, alpha=0.8, color='red')

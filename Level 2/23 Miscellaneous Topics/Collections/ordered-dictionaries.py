@@ -12,6 +12,3 @@ myDictionary['Indigo'] = 6
 myDictionary['Violet'] = 6
 
 print(myDictionary);
-
-
-

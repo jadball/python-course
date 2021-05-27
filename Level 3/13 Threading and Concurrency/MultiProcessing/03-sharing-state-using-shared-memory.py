@@ -14,14 +14,15 @@ To share state between processes use: shared memory
 
 # mp.Value and mp.Array use shared memory
 size = mp.Value('i', 10)
-results = mp.Array('i', [0]*size.value)
+results = mp.Array('i', [0] * size.value)
 
 
 def fn(size, results):
     for n in range(size.value):
-        results[n] = n*n
+        results[n] = n * n
 
-if __name__ == '__main__': 
+
+if __name__ == '__main__':
     p = mp.Process(target=fn, args=(size, results))
     p.start()
     p.join()

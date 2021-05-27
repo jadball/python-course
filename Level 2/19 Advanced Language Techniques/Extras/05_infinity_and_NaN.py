@@ -1,4 +1,4 @@
-print(("inf - 5000.0 =",  float('infinity') - 5000.0))
+print(("inf - 5000.0 =", float('infinity') - 5000.0))
 print(("inf - inf =", float('infinity') - float('infinity')))
 print(("inf + inf =", float('infinity') + float('infinity')))
 print(("inf / inf =", float('infinity') / float('infinity')))

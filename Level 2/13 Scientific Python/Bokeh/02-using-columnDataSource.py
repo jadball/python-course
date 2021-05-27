@@ -9,4 +9,3 @@ source = bp.ColumnDataSource(data=data)
 fig = bp.figure(plot_width=800, plot_height=600)
 fig.circle(x='x_values', y='y_values', source=source, radius=0.1)
 bp.show(fig)
-

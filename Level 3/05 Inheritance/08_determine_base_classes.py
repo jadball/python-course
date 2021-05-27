@@ -1,10 +1,17 @@
-class X : pass
+class X: pass
 
-class A : pass
-class B : pass
-class C(X) : pass
 
-class MyClass(A,B,C): pass
+class A: pass
+
+
+class B: pass
+
+
+class C(X): pass
+
+
+class MyClass(A, B, C): pass
+
 
 m = MyClass()
 
@@ -16,4 +23,3 @@ print("immediate super classes:")
 for clazz in MyClass.__bases__:
     print(f"{clazz.__name__}", end=", ")
 print()
-

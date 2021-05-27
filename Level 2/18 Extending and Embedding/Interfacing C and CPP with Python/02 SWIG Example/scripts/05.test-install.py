@@ -3,5 +3,3 @@ import myhello
 
 myhello.say_hello("World")
 myhello.say_goodbye("Universe")
-
-

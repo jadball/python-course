@@ -13,14 +13,12 @@ def primesFilter(x):
     if x % 13 == 0: return False
     return True
 
+
 # set up a sequence
 sequence = list(range(14, 200))
 
 # filter out all non primes
 primes = list(filter(primesFilter, sequence))
 print(primes)
-
-
-
 
 1

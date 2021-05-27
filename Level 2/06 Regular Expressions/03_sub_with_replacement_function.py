@@ -6,8 +6,10 @@
 
 import re
 
+
 def f(matchObject):
     return f.pre + matchObject.group(1) + f.post
+
 
 # re.sub(pattern, repl, string, count=0, flags=0)
 

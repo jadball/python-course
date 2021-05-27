@@ -6,6 +6,7 @@
 
 from tkinter import *
 
+
 def main():
     root = Tk()
     root.title("Menus")
@@ -22,10 +23,9 @@ class Message(StringVar):
         self.status = status
         self.text = StringVar()
         self.text.set(text)
-        
-    def __call__(self):
-        self.status.configure(text = self.text.get());
 
+    def __call__(self):
+        self.status.configure(text=self.text.get());
 
 
 def setUpStatusBar():
@@ -34,6 +34,7 @@ def setUpStatusBar():
     status = Label(text="Select a menu option")
     status.pack()
     return status
+
 
 def configureFileMenu(menubar, Menu, status):
     filemenu = Menu(menubar, tearoff=0)
@@ -45,6 +46,7 @@ def configureFileMenu(menubar, Menu, status):
     filemenu.add_separator()
     filemenu.add_command(label="Exit", command=Message("Exit", status))
     menubar.add_cascade(label="File", menu=filemenu)
+
 
 def configureEditMenu(menubar, Menu, status):
     editmenu = Menu(menubar, tearoff=1)
@@ -64,7 +66,8 @@ def configureHelpMenu(menubar, Menu, status):
     helpmenu.add_command(label="About...", command=Message("About...", status))
     menubar.add_cascade(label="Help", menu=helpmenu)
 
-def draw(root, mw):   
+
+def draw(root, mw):
     menubar = Menu(root)
     status = setUpStatusBar()
     configureFileMenu(menubar, Menu, status)
@@ -72,7 +75,5 @@ def draw(root, mw):
     configureHelpMenu(menubar, Menu, status)
     root.config(menu=menubar)
 
-    
-main()
 
-  
+main()

@@ -8,12 +8,12 @@ bp.output_file("html/basic-glyphs.html")
 fig = bp.figure(plot_width=800, plot_height=600)
 fig.circle(x=X, y=Y, radius=0.1)
 
-X = [x+1 for x in X]
-Y = [y-1 for y in Y]
+X = [x + 1 for x in X]
+Y = [y - 1 for y in Y]
 fig.square(x=X, y=Y, size=20, color="olive", alpha=0.5)
 
-X = [x+1 for x in X]
-Y = [y-1 for y in Y]
+X = [x + 1 for x in X]
+Y = [y - 1 for y in Y]
 
 fig.diamond(x=X, y=Y, size=40, angle=-45.0, color="pink")
 bp.show(fig)

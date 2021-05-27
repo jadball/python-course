@@ -7,8 +7,10 @@
 class A(object):
     def f(self):
         pass
+
     def g():
         pass
+
 
 # create instance
 a = A()
@@ -21,10 +23,10 @@ print(a.f)
 print(a.g)
 
 A.f(a)  # how to call an unbound method (note instance parameter)
-a.f()   # how to call a bound method
+a.f()  # how to call a bound method
 
 try:
-    A.g()   # fails without instance parameter
+    A.g()  # fails without instance parameter
 except Exception as e:
     print(e)
 

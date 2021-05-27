@@ -6,6 +6,7 @@
 
 from tkinter import *
 
+
 def main():
     root = Tk()
     root.title("Counter")
@@ -15,14 +16,16 @@ def main():
     draw(mainframe)
     root.mainloop()
 
+
 def EverySecond():
     n = EverySecond.count.get() + 1
     EverySecond.count.set(n)
     EverySecond.frame.after(1000, EverySecond)
 
+
 def draw(frame):
     count = IntVar()
-    label = Label(frame, width=10, textvariable=count, font = "Arial 40")
+    label = Label(frame, width=10, textvariable=count, font="Arial 40")
     label.pack()
     EverySecond.count = count
     EverySecond.frame = frame
@@ -30,6 +33,3 @@ def draw(frame):
 
 
 main()
-
-
-

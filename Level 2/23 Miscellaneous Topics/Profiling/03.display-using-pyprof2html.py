@@ -8,6 +8,7 @@ converter._hookhtml()
 
 # display html/index.html in web browser
 import webbrowser, os
+
 url = os.getcwd().replace('\\', '/')  # getcwd() returns slashes the wrong way round for a browser
 url = "file:///" + url + "/html/index.html"
 print(url)

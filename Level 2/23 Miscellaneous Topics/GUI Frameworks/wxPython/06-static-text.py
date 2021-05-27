@@ -17,17 +17,16 @@ class MyApp(wx.App):
 
 
 class MyFrame(wx.Frame):
-
     ID_OPEN = 100
     ID_SAVE = 101
     ID_EXIT = 102
 
     def __init__(self, title):
-        wx.Frame.__init__(self, 
-                          parent = None, 
-                          title = title,
-                          pos = (50, 150),
-                          size = (400, 400))
+        wx.Frame.__init__(self,
+                          parent=None,
+                          title=title,
+                          pos=(50, 150),
+                          size=(400, 400))
         try:
             self.AddMenu()
             self.AddSubMenu()
@@ -43,12 +42,12 @@ class MyFrame(wx.Frame):
         self.file = wx.Menu()
         self.edit = wx.Menu()
         self.help = wx.Menu()
-        
-        self.file.Append(text = '&Open', help = 'Open a new document', id = MyFrame.ID_OPEN)
-        self.file.Append(text = '&Save', help = 'Save the document', id = MyFrame.ID_SAVE)
+
+        self.file.Append(text='&Open', help='Open a new document', id=MyFrame.ID_OPEN)
+        self.file.Append(text='&Save', help='Save the document', id=MyFrame.ID_SAVE)
         self.file.AppendSeparator()
-        self.file.Append(text = 'E&xit', help = 'Exit', id = MyFrame.ID_EXIT)
-        
+        self.file.Append(text='E&xit', help='Exit', id=MyFrame.ID_EXIT)
+
         self.menubar.Append(self.file, '&File')
         self.menubar.Append(self.edit, '&Edit')
         self.menubar.Append(self.help, '&Help')
@@ -56,16 +55,16 @@ class MyFrame(wx.Frame):
 
     def AddSubMenu(self):
         self.submenu = wx.Menu()
-        self.submenu.Append(text = 'item1', kind=wx.ITEM_RADIO, id = wx.ID_ANY)
-        self.submenu.Append(text = 'item2', kind=wx.ITEM_RADIO, id = wx.ID_ANY)
-        self.submenu.Append(text = 'item3', kind=wx.ITEM_RADIO, id = wx.ID_ANY)
-        self.file.AppendMenu(text = 'submenu', submenu = self.submenu, id = wx.ID_ANY)
+        self.submenu.Append(text='item1', kind=wx.ITEM_RADIO, id=wx.ID_ANY)
+        self.submenu.Append(text='item2', kind=wx.ITEM_RADIO, id=wx.ID_ANY)
+        self.submenu.Append(text='item3', kind=wx.ITEM_RADIO, id=wx.ID_ANY)
+        self.file.AppendMenu(text='submenu', submenu=self.submenu, id=wx.ID_ANY)
 
     def onOpen(self, event):
         dlg = wx.MessageDialog(self, "Open selected", "Event", wx.ICON_INFORMATION)
         dlg.ShowModal()
         dlg.Destroy()
-    
+
     def onSave(self, event):
         dlg = wx.MessageDialog(self, "Save selected", "Event", wx.ICON_INFORMATION)
         dlg.ShowModal()
@@ -78,7 +77,7 @@ class MyFrame(wx.Frame):
         self.Connect(MyFrame.ID_OPEN, -1, wx.wxEVT_COMMAND_MENU_SELECTED, self.onOpen)
         self.Connect(MyFrame.ID_SAVE, -1, wx.wxEVT_COMMAND_MENU_SELECTED, self.onSave)
         self.Connect(MyFrame.ID_EXIT, -1, wx.wxEVT_COMMAND_MENU_SELECTED, self.onExit)
-        
+
     ID_BUTTON1 = 103
     ID_BUTTON2 = 104
     ID_BUTTON3 = 105
@@ -93,9 +92,9 @@ class MyFrame(wx.Frame):
     def AddButtons(self):
         self.panel = wx.Panel(self, -1)
         self.box = wx.BoxSizer(wx.HORIZONTAL)
-        self.box.Add(wx.Button(self.panel, MyFrame.ID_BUTTON1, 'Button1'), 1 )
-        self.box.Add(wx.Button(self.panel, MyFrame.ID_BUTTON2, 'Button2'), 1 )
-        self.box.Add(wx.Button(self.panel, MyFrame.ID_BUTTON3, 'Button3'), 1 )
+        self.box.Add(wx.Button(self.panel, MyFrame.ID_BUTTON1, 'Button1'), 1)
+        self.box.Add(wx.Button(self.panel, MyFrame.ID_BUTTON2, 'Button2'), 1)
+        self.box.Add(wx.Button(self.panel, MyFrame.ID_BUTTON3, 'Button3'), 1)
         self.panel.SetSizer(self.box)
         self.Bind(wx.EVT_BUTTON, self.onButton, id=MyFrame.ID_BUTTON1)
         self.Bind(wx.EVT_BUTTON, self.onButton, id=MyFrame.ID_BUTTON2)
@@ -103,11 +102,10 @@ class MyFrame(wx.Frame):
 
     def AddStaticText(self):
         textString1 = "The quick brown fox jumped over the lazy dog."
-        textString2 = "To screw up is human\nbut to really screw up\nrequires a computer"        
+        textString2 = "To screw up is human\nbut to really screw up\nrequires a computer"
         wx.StaticText(self.panel, -1, textString1, (45, 100), style=wx.ALIGN_CENTRE)
         wx.StaticText(self.panel, -1, textString2, (45, 190), style=wx.ALIGN_CENTRE)
 
-        
+
 app = MyApp()
 app.MainLoop()
-

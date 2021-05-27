@@ -1,5 +1,6 @@
-import pycurl
 from io import BytesIO
+
+import pycurl
 
 buffer = BytesIO()
 c = pycurl.Curl()

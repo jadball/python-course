@@ -5,7 +5,7 @@
 ############################################################
 
 import http.server
-import cgi, random, sys
+
 
 class Handler(http.server.BaseHTTPRequestHandler):
 
@@ -16,21 +16,21 @@ class Handler(http.server.BaseHTTPRequestHandler):
         except:
             self.send_error(404, "File name missing")
             return
-            
+
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
-        
+
         # download file
         for line in f:
             line = line.encode('UTF-8')
             self.wfile.write(line)
 
+
 PORT = 8002
 httpd = http.server.HTTPServer(("", PORT), Handler)
 print("serving at port", PORT)
 httpd.serve_forever()
-
 
 """
 try the following URL's

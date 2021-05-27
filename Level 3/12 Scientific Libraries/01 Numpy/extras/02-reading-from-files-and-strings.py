@@ -1,5 +1,6 @@
-import numpy as np
 import io
+
+import numpy as np
 
 # data can be tab separated or comma seperated  
 
@@ -10,7 +11,7 @@ np.set_printoptions(formatter={'float': lambda x: "{:8.1f}".format(x)})
 print(data)
 
 # read data from byte stream (comma separated)
-input=b"""        # must be byte stream
+input = b"""        # must be byte stream
 1, 23.7, Monday\n
 2, 14.6, Tuesday\n
 3, 18.9, Wednesday\n
@@ -22,4 +23,3 @@ data = np.genfromtxt(raw_data, dtype="i8,f8,S3", delimiter=", ")
 
 for row in data:
     print(row)
-

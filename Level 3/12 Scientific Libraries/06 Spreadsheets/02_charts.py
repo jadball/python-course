@@ -1,11 +1,9 @@
 from openpyxl import Workbook
-#from openpyxl.compat import range
-from openpyxl.utils import get_column_letter
+# from openpyxl.compat import range
 from openpyxl.chart import (
     AreaChart3D,
     AreaChart,
     Reference,
-    Series,
 )
 
 wb = Workbook()
@@ -37,14 +35,11 @@ chart.add_data(yData, titles_from_data=True)
 chart.set_categories(xData)
 ws.add_chart(chart, "C10")
 
-
 chart = AreaChart3D()
 cats = Reference(ws, min_col=1, min_row=1, max_row=7)
 data = Reference(ws, min_col=2, min_row=1, max_col=3, max_row=7)
 chart.add_data(data, titles_from_data=True)
 # chart.set_categories(cats)
 ws.add_chart(chart, "B30")
-
-
 
 wb.save('data/charts2.xlsx')

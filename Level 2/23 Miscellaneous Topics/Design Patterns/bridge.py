@@ -13,7 +13,8 @@
 #   Logging Logging Logging
 
 
-from abc import ABCMeta, abstractmethod
+from abc import abstractmethod
+
 
 #####
 # logging hierarchy
@@ -28,13 +29,16 @@ class file_logging(logging):
     def write(self, s):
         print("file: ", s)
 
+
 class terminal_logging(logging):
     def write(self, s):
         print("terminal: ", s)
 
+
 class null_logging(logging):
     def write(self, s):
         print("null:")
+
 
 #####
 # service hierarchy
@@ -57,6 +61,7 @@ class http(service):
 
     def put(self):
         self.log.write("http put")
+
 
 class ftp(service):
     def get(self):
@@ -89,4 +94,3 @@ service2.trace(terminal_logging());
 service2.get();
 service2.put();
 service2.shutdown();
-

@@ -6,10 +6,13 @@
 
 import wx
 
+
 # generator for ids
-def ids(): 
+def ids():
     for n in range(200, 1000): yield n
     return
+
+
 idGenerator = ids()
 
 
@@ -22,7 +25,7 @@ class MyApp(wx.App):
 
 class MyFrame(wx.Frame):
     def __init__(self, title):
-        wx.Frame.__init__(self, parent = None, title = title, pos = (50, 150), size = (400, 400))
+        wx.Frame.__init__(self, parent=None, title=title, pos=(50, 150), size=(400, 400))
         self.AddButtons()
 
     def onButton(self, event):
@@ -38,14 +41,14 @@ class MyFrame(wx.Frame):
         self.button1 = wx.Button(self.panel, next(idGenerator), 'Button1')
         self.button2 = wx.Button(self.panel, next(idGenerator), 'Button2')
         self.button3 = wx.Button(self.panel, next(idGenerator), 'Button3')
-        self.box.Add(self.button1, 1 )
-        self.box.Add(self.button2, 1 )
-        self.box.Add(self.button3, 1 )
+        self.box.Add(self.button1, 1)
+        self.box.Add(self.button2, 1)
+        self.box.Add(self.button3, 1)
         self.panel.SetSizer(self.box)
         self.Bind(wx.EVT_BUTTON, self.onButton, self.button1)
         self.Bind(wx.EVT_BUTTON, self.onButton, self.button2)
         self.Bind(wx.EVT_BUTTON, self.onButton, self.button3)
-        
+
+
 app = MyApp()
 app.MainLoop()
-

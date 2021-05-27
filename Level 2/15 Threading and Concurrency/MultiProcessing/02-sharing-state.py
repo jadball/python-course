@@ -10,13 +10,15 @@ import multiprocessing as mp
 You can't share state between processes using a global!
 '''
 
-results = []        # global state
+results = []  # global state
+
 
 def fn(N):
     for n in range(N):
-        results.append(n*n)
+        results.append(n * n)
 
-if __name__ == '__main__': 
+
+if __name__ == '__main__':
     p = mp.Process(target=fn, args=(20,))
     p.start()
     p.join()

@@ -1,5 +1,6 @@
 from tkinter import *
 
+
 def main():
     root = Tk()
     root.title("?????")
@@ -9,9 +10,9 @@ def main():
     draw(mainframe)
     root.mainloop()
 
+
 def draw(frame):
     pass
 
 
 main()
-

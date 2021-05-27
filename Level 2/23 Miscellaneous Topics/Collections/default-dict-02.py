@@ -15,8 +15,6 @@ myDictionary = collections.defaultdict(list)
 for key, value in sequence:
     myDictionary[key].append(value)
 
-
 print(list(myDictionary.items()))
-
 
 1

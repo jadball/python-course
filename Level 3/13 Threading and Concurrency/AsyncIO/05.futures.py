@@ -1,10 +1,12 @@
 import asyncio
+
 import requests
+
 
 async def download(site):
     # download 5 times to slow program down
     for _ in range(5):
-        await asyncio.sleep(0)      # standard way to yield to event loop
+        await asyncio.sleep(0)  # standard way to yield to event loop
         print(f"downloading from {site}")
         response = requests.get(site)
     message = f"{site} returned {len(response.text)} characters"
@@ -20,6 +22,6 @@ async def main():
         download("http://abc.com")
     )
     print(response)
-    
-asyncio.run(main())
 
+
+asyncio.run(main())

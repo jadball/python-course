@@ -18,11 +18,14 @@ x1 = pickle.load(f)
 x2 = pickle.load(f)
 f.close()
 
+
 class Foo:
     def display(self):
         print(self.x)
+
     def __init__(self, x0):
         self.x = x0
+
 
 foo = Foo(66)
 f = open("data/test2.dat", "w")

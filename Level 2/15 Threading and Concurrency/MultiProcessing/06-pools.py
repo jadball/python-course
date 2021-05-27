@@ -5,10 +5,11 @@
 ############################################################
 
 from multiprocessing import Pool
-import os
+
 
 def f(x):
-    return x**2
+    return x ** 2
+
 
 # run the map function in parent process
 results = list(map(f, range(20)))
@@ -20,5 +21,5 @@ print(f"single process: {results}")
 
 with Pool(5) as p:
     results = p.map(f, range(20))
-    
-print(f"multiple processes: {results}")        
+
+print(f"multiple processes: {results}")

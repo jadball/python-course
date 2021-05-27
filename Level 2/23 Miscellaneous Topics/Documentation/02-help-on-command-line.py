@@ -1,3 +1,3 @@
-import subprocess, setup_path
+import subprocess
 
 subprocess.call("python -m pydoc json".split())

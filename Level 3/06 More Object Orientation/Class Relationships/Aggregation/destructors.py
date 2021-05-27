@@ -6,16 +6,17 @@ class Computer:
         self.disk = d
         self.processor = p
         self.screen = screen
-    
+
     def __del__(self):
         print("Computer: DTOR called")
-    
+
     def GetDetails(self):
         return "name=" + self.name + "\n" + \
-               "ram=" + self.ram  + "\n" + \
-               "disk=" + self.disk  + "\n" + \
-               "processor=" + self.processor  + "\n" + \
+               "ram=" + self.ram + "\n" + \
+               "disk=" + self.disk + "\n" + \
+               "processor=" + self.processor + "\n" + \
                "screen: " + self.screen.GetDetails() + "\n";
+
 
 class Screen:
     def __init__(self, s, rx, ry):
@@ -25,22 +26,24 @@ class Screen:
 
     def __del__(self):
         print("Screen: DTOR called")
-    
+
     def GetDetails(self):
         return "size=" + str(self.size) + ", " + \
                "resolution: " + self.resolution.GetDetails()
-        
+
+
 class Resolution:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        
+
     def __del__(self):
         print("Resolution: DTOR called")
-    
+
     def GetDetails(self):
         return "x=" + str(self.x) + "," + \
                "y=" + str(self.y)
+
 
 dell = Computer("Vostro", "2GB", "160GB", "Intel", 24, 1440, 900)
 toshiba = Computer("Satellite", "3GB", "140GB", "AMD", 24, 1920, 1200)

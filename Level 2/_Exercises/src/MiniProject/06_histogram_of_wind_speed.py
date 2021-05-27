@@ -1,15 +1,17 @@
-import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
 
 def plotBarChart(df):
-    plt.figure(figsize=(13,8))
+    plt.figure(figsize=(13, 8))
     plt.gcf().canvas.set_window_title('GeoPandas')
     ax = plt.gca()
     ax.set_title("Average Wind Speed")
     ax.set_facecolor("orange")
     df.plot.barh(ax=ax)
     plt.show()
+
 
 pd.set_option('display.precision', 1)
 pd.set_option('display.width', 200)

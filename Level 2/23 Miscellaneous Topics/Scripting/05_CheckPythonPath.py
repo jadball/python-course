@@ -8,7 +8,5 @@ import sys
 
 print(sys.path)
 
-
 for item in sys.path:
     print(item)
-

@@ -17,11 +17,8 @@ for r in roots:
     print("{0:6.2f}".format(r), end=' ')
 print()
 
-
 # comprehensions behave like generator expressions (but are evaluated immediately)
 roots = [sqrt(x) for x in range(10)]
 for r in roots:
     print("{0:6.2f}".format(r), end=' ')
 print()
-
-

@@ -1,19 +1,20 @@
+from io import StringIO
+
 import numpy as np
 import pandas as pd
 import pylab as pl
 
-from io import StringIO
 
 def main():
     # get test data embedded in this script
     test_data = get_test_data()
-    df = pd.read_csv(test_data, sep="[ ]+", engine = 'python')
+    df = pd.read_csv(test_data, sep="[ ]+", engine='python')
     df[['year', 'month']] = df[['year', 'month']].astype(int)
     df[['tmax', 'tmin']] = df[['tmax', 'tmin']].astype(float)
 
-    df['quarters'] = df.apply(lambda x : "{:.0f}'Q{}".format(x.year, int(x.month+2)//3), axis = 1)
+    df['quarters'] = df.apply(lambda x: "{:.0f}'Q{}".format(x.year, int(x.month + 2) // 3), axis=1)
     averages = df.groupby('quarters').aggregate(np.mean)
-    averages.plot(figsize=(16, 8), title = 'Average Temperatures', y = ['tmin', 'tmax'], color = ['red', 'cyan'], kind = 'bar')
+    averages.plot(figsize=(16, 8), title='Average Temperatures', y=['tmin', 'tmax'], color=['red', 'cyan'], kind='bar')
     pl.show()
 
 

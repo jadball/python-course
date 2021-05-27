@@ -4,9 +4,11 @@
 #
 ############################################################
 
-import socket, time
+import socket
+import time
 
 PORT = 7002
+
 
 def sendMessages(PORT):
     clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -14,6 +16,7 @@ def sendMessages(PORT):
     message = "This is a message from a client"
     clientSocket.send(message.encode("UTF-8"))
     clientSocket.close()
+
 
 for n in range(10):
     sendMessages(PORT)

@@ -11,7 +11,7 @@ x = 100
 # simple statement
 if x < 0:
     print('Negative')
-else:   
+else:
     print('positive')
 
 # compound statement

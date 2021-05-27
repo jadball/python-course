@@ -3,21 +3,27 @@
 class MyMetaclassA(type):
     x1 = 1
 
+
 class MyMetaclassB(MyMetaclassA):
     x2 = 2
+
 
 class MyMetaclassC(MyMetaclassB):
     x3 = 3
 
+
 class A(object, metaclass=MyMetaclassC):
     y1 = 11
-    
+
+
 class B(A):
     y2 = 22
-    
+
+
 class C(B):
     y3 = 33
-    
+
+
 # working with classes
 # lookup chain for attributes starts with the class, 
 # then each class in inheritance tree using method resolution order (MRO)
@@ -50,4 +56,3 @@ try:
     print(o.x1)  # fails
 except AttributeError as e:
     print(e)
-

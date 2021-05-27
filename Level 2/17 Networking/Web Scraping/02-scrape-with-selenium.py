@@ -1,9 +1,10 @@
-import re, webbrowser
-from bs4 import os, BeautifulSoup, Tag
+import re
+import webbrowser
 
+from bs4 import os, BeautifulSoup
 # must be able to locate chromedriver on the PATH
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+
 os.environ["PATH"] = "." + os.pathsep + os.environ["PATH"]
 
 # load Chrome
@@ -19,7 +20,7 @@ def correctURLs(url):
 
 
 # the pages do not load immediately so add implicit delays on all pages 
-driver.implicitly_wait(5) # seconds
+driver.implicitly_wait(5)  # seconds
 
 # open news site
 driver.get("http://www.bbc.co.uk/news")
@@ -36,10 +37,9 @@ soup = BeautifulSoup(html, 'html5lib')
 # pattern = r'(<a class="story".*?</a>)'
 pattern = r'(<a.*?</a>)'
 
-pattern = re.compile(pattern, re.S)     # S modifier for multiline support
+pattern = re.compile(pattern, re.S)  # S modifier for multiline support
 data = str(soup)
-matcher = re.findall(pattern, data)     # find all the spans as a list
-
+matcher = re.findall(pattern, data)  # find all the spans as a list
 
 # some spans have the incorrect urls which need the modifying
 newMatcher = []
@@ -47,7 +47,7 @@ for match in matcher:
     newMatcher.append(correctURLs(match))
 
 # create a string of spans separated by breaks
-data = "<br>".join(newMatcher)             
+data = "<br>".join(newMatcher)
 
 # save scraped info to a file
 try:
@@ -58,11 +58,10 @@ except IOError as e:
     print(e)
 
 # display local file in browser
-try: 
+try:
     url = "file:///" + os.getcwd().replace("\\", '/') + "/out.html"
-    webbrowser.open_new_tab(url)    
+    webbrowser.open_new_tab(url)
 except Exception as e:
     print(e)
-    
 
 1

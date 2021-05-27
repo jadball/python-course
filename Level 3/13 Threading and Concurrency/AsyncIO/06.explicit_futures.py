@@ -1,16 +1,19 @@
 import asyncio
+
 import requests
+
 
 # this example uses future objects.  Each download explicitly sets
 # its result
 async def download(site, future):
     # download 5 times to slow program down
     for _ in range(5):
-        await asyncio.sleep(0)      # standard way to yield to event loop
+        await asyncio.sleep(0)  # standard way to yield to event loop
         print(f"downloading from {site}")
         response = requests.get(site)
     message = f"{site} returned {len(response.text)} characters"
     future.set_result(message)
+
 
 async def main():
     event_loop = asyncio.get_event_loop()
@@ -26,8 +29,6 @@ async def main():
     print(f1.result())
     print(f2.result())
     print(f3.result())
-    
-        
+
+
 asyncio.run(main())
-
-

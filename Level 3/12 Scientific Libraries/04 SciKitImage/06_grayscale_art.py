@@ -1,15 +1,8 @@
-import os, sys
-import numpy as np
-import scipy.ndimage as nd
 import matplotlib.pyplot as plt
-import skimage.morphology as morphology
-import skimage.feature as feature
-from PIL import Image
-import time
-
 
 import skimage.io as io
-fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(10, 4), dpi=72*3)
+
+fig, ax = plt.subplots(ncols=1, nrows=1, figsize=(10, 4), dpi=72 * 3)
 image = io.imread("images/chris.jpg", as_gray=True) * 256
 t1 = 90
 t2 = 116

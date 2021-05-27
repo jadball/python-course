@@ -18,7 +18,7 @@ myDeque.append(102);
 myDeque.append(103);
 
 # play with rotate
-print(myDeque) 
+print(myDeque)
 myDeque.rotate(7)
 print(myDeque)
 myDeque.rotate(-7)
@@ -28,6 +28,5 @@ print(myDeque)
 myDeque.pop()
 myDeque.popleft()
 print(myDeque)
-
 
 1

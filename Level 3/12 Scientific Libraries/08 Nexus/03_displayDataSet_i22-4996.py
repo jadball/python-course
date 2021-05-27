@@ -1,8 +1,7 @@
 import h5py
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 from scipy.signal import savgol_filter
-
 
 # open Nexus file
 f = h5py.File("data/i22-4996.nxs", "r")
@@ -14,12 +13,11 @@ ds = f["/entry1/Hotwaxs/data"]
 print(f"dataset shape = {ds.shape}")
 
 # extract last dimension to numpy array
-Y = ds[(0,0)]
-size = Y.shape[0] 
+Y = ds[(0, 0)]
+size = Y.shape[0]
 X = np.arange(size)
 # window size 51, polynomial order 3
-Y_filtered = savgol_filter(Y, 51, 3) 
-
+Y_filtered = savgol_filter(Y, 51, 3)
 
 ax = plt.gca()
 ax.set_title("i22-4996.nxs")

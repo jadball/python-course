@@ -1,16 +1,21 @@
 import logging
 import re
 
+
 class ContextFilter(logging.Filter):
     def __init__(self):
         self.ip = ""
         self.user = ""
-    def setIp(self, ip): self.ip = ip 
-    def setUser(self, user): self.user = user 
+
+    def setIp(self, ip): self.ip = ip
+
+    def setUser(self, user): self.user = user
+
     def filter(self, record):
         record.ip = self.ip
         record.user = self.user
         return True
+
 
 LOG_FILENAME = 'logs/example3.log'
 myFormat = '''%(levelname)-8s 
@@ -20,17 +25,17 @@ myFormat = '''%(levelname)-8s
               User: %(user)-8s 
               %(message)s'''
 pattern = re.compile(r'\s+')
-myFormat = re.sub(pattern, ' ', myFormat) # strip spaces
+myFormat = re.sub(pattern, ' ', myFormat)  # strip spaces
 print(myFormat)
 
-levels = (logging.DEBUG, 
-          logging.INFO, 
-          logging.WARNING, 
-          logging.ERROR, 
+levels = (logging.DEBUG,
+          logging.INFO,
+          logging.WARNING,
+          logging.ERROR,
           logging.CRITICAL)
-logging.basicConfig(filename = LOG_FILENAME,
-                    level = logging.DEBUG,
-                    format = myFormat)
+logging.basicConfig(filename=LOG_FILENAME,
+                    level=logging.DEBUG,
+                    format=myFormat)
 
 myLogger = logging.getLogger("FILTER")
 myFilter = ContextFilter()

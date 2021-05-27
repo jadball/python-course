@@ -1,11 +1,11 @@
 # set up a dictionary
 salary = {
-          "john":  34000, 
-          "sara":  27000,
-          "pedro": 52000,
-          "tim":   12500,
-          "zoe":   66000
-         }
+    "john": 34000,
+    "sara": 27000,
+    "pedro": 52000,
+    "tim": 12500,
+    "zoe": 66000
+}
 
 # get a view of keys (iterable)
 keys_view = salary.keys()

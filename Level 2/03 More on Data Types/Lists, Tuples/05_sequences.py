@@ -30,5 +30,4 @@ for value in sorted(sequence3):
     print(value, end=' ... ')
 print()
 
-
 1

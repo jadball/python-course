@@ -27,45 +27,46 @@ West Ham United      1–2  0–0  1–0  0–1  1–3  1–2  3–0  2–0  3�
 import mechanize
 from bs4 import BeautifulSoup
 
+
 def findAllRowsInResultsTable(soup):
-	table = soup.find("table", {"class":"wikitable plainrowheaders"})
-	trs = table.find_all("tr")
-	trs.pop(0)		# headings
-	return trs
+    table = soup.find("table", {"class": "wikitable plainrowheaders"})
+    trs = table.find_all("tr")
+    trs.pop(0)  # headings
+    return trs
+
 
 def getSoup(url):
-	br = mechanize.Browser()
-	br.open(url)
-	data = br.response().read()
-	soup = BeautifulSoup(data, "lxml")
-	return soup
+    br = mechanize.Browser()
+    br.open(url)
+    data = br.response().read()
+    soup = BeautifulSoup(data, "lxml")
+    return soup
+
 
 # def extractTeam(text):
 # 	'the teams have a strange format with an ! separating two copies of the team names'
 # 	fields = text.split('!')
 # 	return fields[1]
 
-url="https://en.wikipedia.org/wiki/2018-19_Premier_League#Result_table"
-teams = [ ]
-scores = [ ]
+url = "https://en.wikipedia.org/wiki/2018-19_Premier_League#Result_table"
+teams = []
+scores = []
 soup = getSoup(url)
 trs = findAllRowsInResultsTable(soup)
 for tr in trs:
-	row =  tr.find_all(text=True)
-	entry = [str(col) for col in list(row) if str(col) != "\n"]
-	team = entry.pop(0)
-	teams.append( team )
-	teamScores = [ ]
-	for col in entry:
-		teamScores.append(col.strip())
-	scores.append(teamScores)
+    row = tr.find_all(text=True)
+    entry = [str(col) for col in list(row) if str(col) != "\n"]
+    team = entry.pop(0)
+    teams.append(team)
+    teamScores = []
+    for col in entry:
+        teamScores.append(col.strip())
+    scores.append(teamScores)
 
 league = zip(teams, scores)
 
 for team, results in league:
-	print(f"{team:24s}", end=" ")
-	for state_centroid in results:
-		print(f"{state_centroid:4s}", end=" ")
-	print() 
-
-
+    print(f"{team:24s}", end=" ")
+    for state_centroid in results:
+        print(f"{state_centroid:4s}", end=" ")
+    print()

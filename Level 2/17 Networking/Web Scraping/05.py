@@ -1,10 +1,8 @@
-import sys
-import codecs
-from bs4 import os, BeautifulSoup, Tag
+from bs4 import os
 
 # must be able to locate chromedriver on the PATH
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+
 os.environ["PATH"] = "." + os.pathsep + os.environ["PATH"]
 
 # load Chrome
@@ -12,14 +10,14 @@ driver = webdriver.Chrome(executable_path="chromedriver-75")
 
 CONGRESS = 'berks_and_bucks_2016'
 congress = {
-    'guildford_2016'       : "http://www.bridgewebs.com/cgi-bin/bwok/bw.cgi?pid=display_rank&msec=1&sessid=789062789219227&event=20160924_1&wd=1&club=surrey",
-    'guildford_2015'       : "http://www.bridgewebs.com/cgi-bin/bwok/bw.cgi?pid=display_rank&msec=1&sessid=794445377196721&event=20150926_1&wd=1&club=surrey",
-    'bournemouth_2016'     : "http://www.bridgewebs.com/cgi-bin/bwoj/bw.cgi?pid=display_rank&msec=1&sessid=597598254508548&event=20160724_1&wd=1&club=dorset",
-    'berks_and_bucks_2016' : "http://www.bridgewebs.com/cgi-bin/bwoj/bw.cgi?pid=display_rank&msec=1&sessid=73056454962952&event=20160618_2&wd=1&club=bbcba",
-    'berks_and_bucks_2015' : "http://www.bridgewebs.com/cgi-bin/bwoj/bw.cgi?pid=display_rank&msec=1&sessid=73056454962952&event=20150620_2&wd=1&club=bbcba",
-    'reading_29_sep_16'    : "http://www.bridgewebs.com/cgi-bin/bwoj/bw.cgi?pid=display_rank&msec=1&sessid=28776660500956&event=20160929_1&wd=1&club=reading",
-    'lane_end'             : "https://www.bridgewebs.com/cgi-bin/bwom/bw.cgi?pid=display_rank&event=20190708_1&club=laneend",
-    'basingstoke'          : "https://www.bridgewebs.com/cgi-bin/bwom/bw.cgi?pid=display_rank&event=20190716_1&club=basingstoke"
+    'guildford_2016': "http://www.bridgewebs.com/cgi-bin/bwok/bw.cgi?pid=display_rank&msec=1&sessid=789062789219227&event=20160924_1&wd=1&club=surrey",
+    'guildford_2015': "http://www.bridgewebs.com/cgi-bin/bwok/bw.cgi?pid=display_rank&msec=1&sessid=794445377196721&event=20150926_1&wd=1&club=surrey",
+    'bournemouth_2016': "http://www.bridgewebs.com/cgi-bin/bwoj/bw.cgi?pid=display_rank&msec=1&sessid=597598254508548&event=20160724_1&wd=1&club=dorset",
+    'berks_and_bucks_2016': "http://www.bridgewebs.com/cgi-bin/bwoj/bw.cgi?pid=display_rank&msec=1&sessid=73056454962952&event=20160618_2&wd=1&club=bbcba",
+    'berks_and_bucks_2015': "http://www.bridgewebs.com/cgi-bin/bwoj/bw.cgi?pid=display_rank&msec=1&sessid=73056454962952&event=20150620_2&wd=1&club=bbcba",
+    'reading_29_sep_16': "http://www.bridgewebs.com/cgi-bin/bwoj/bw.cgi?pid=display_rank&msec=1&sessid=28776660500956&event=20160929_1&wd=1&club=reading",
+    'lane_end': "https://www.bridgewebs.com/cgi-bin/bwom/bw.cgi?pid=display_rank&event=20190708_1&club=laneend",
+    'basingstoke': "https://www.bridgewebs.com/cgi-bin/bwom/bw.cgi?pid=display_rank&event=20190716_1&club=basingstoke"
 }
 # https://www.bridgewebs.com/cgi-bin/bwom/bw.cgi?club=bbcba&pid=display_past&sessid=478591226426642
 
@@ -28,11 +26,11 @@ event = congress[CONGRESS]
 driver.get(event)
 
 # the pages do not load immediately so add implicit delays on all pages 
-driver.implicitly_wait(20) # seconds
+driver.implicitly_wait(20)  # seconds
 
 # we have to click on the travellers div to get to the correct content
-selector="#bwbox_main_right_box > tbody > tr > td > table > tbody > tr:nth-child(1) > td > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td:nth-child(4) > div"
-selector="#bwbox_main_right_box > table > tbody > tr:nth-child(1) > td > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td > table > tbody > tr > td:nth-child(4) > div"
+selector = "#bwbox_main_right_box > tbody > tr > td > table > tbody > tr:nth-child(1) > td > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td:nth-child(4) > div"
+selector = "#bwbox_main_right_box > table > tbody > tr:nth-child(1) > td > table > tbody > tr:nth-child(2) > td > table > tbody > tr > td > table > tbody > tr > td:nth-child(4) > div"
 
 content = driver.find_element_by_css_selector(selector)
 content.click()
@@ -40,11 +38,12 @@ content.click()
 # get the htlm and pass it to BeautifulSoup4
 # body = driver.find_element_by_tag_name('body')
 # wait until we can see travellers
-#result_1
+# result_1
 xpath = r'//*[@id="result_10"]'
 element = driver.find_element_by_xpath(xpath)
 driver.execute_script("arguments[0].scrollIntoView();", element)
 import sys
+
 sys.exit()
 
 text = driver.find_element_by_css_selector("#trav_r_1").text
@@ -55,12 +54,14 @@ soup = BeautifulSoup(html, 'html5lib')
 
 tables = soup.find_all("table", class_="brx_table")
 
+
 def suitToUnicode(suit):
-    lookup = { 'spade'   : '♠',
-               'heart'   : '♥',
-               'diamond' : '♦',
-               'club'    : '♣' }
+    lookup = {'spade': '♠',
+              'heart': '♥',
+              'diamond': '♦',
+              'club': '♣'}
     return lookup[suit]
+
 
 def getResult(board, lines):
     def getBid():
@@ -72,6 +73,7 @@ def getResult(board, lines):
             imgs.pop(0)
             bid = bid[0] + suit + bid[1:]
         return bid
+
     def getLead():
         lead = tds[4].getText()
         if lead == "": return ""
@@ -79,10 +81,12 @@ def getResult(board, lines):
             suit = suitToUnicode(imgs[0]['alt'])
             lead = lead[0] + suit + lead[1:]
         return lead
+
     def calculate_NS_score():
-        ns = int("0" + tds[6].getText()) 
+        ns = int("0" + tds[6].getText())
         ew = int("0" + tds[7].getText())
         return str(ns - ew)
+
     tds = lines.findChildren('td')
     imgs = lines.findChildren('img', alt=True)
     board = str(board)
@@ -101,6 +105,7 @@ def getResult(board, lines):
     return "{},{},{},{},{},{},{},{},{},{}\n".format(
         board, ns, ew, bid, by, lead, tricks, score, NS_pts, EW_pts)
 
+
 # write output to file and echo results to console
 fileName = "results/" + CONGRESS + ".txt"
 f = codecs.open(fileName, "w", "UTF-8")
@@ -108,7 +113,7 @@ f.write("board,NS,EW,bid,by,lead,tricks,score,NS_pts,EW_pts\n")
 for board, table in enumerate(tables):
     board += 1
     results_even = table.find_all('tr', class_="brx_even_lg")
-    results_odd  = table.find_all('tr', class_="brx_odd_lg")
+    results_odd = table.find_all('tr', class_="brx_odd_lg")
     try:
         for result in results_even:
             out = getResult(board, result)
@@ -125,4 +130,3 @@ for board, table in enumerate(tables):
 
 f.close()
 driver.quit()
-

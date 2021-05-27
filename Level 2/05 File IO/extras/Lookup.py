@@ -1,6 +1,6 @@
 f = open("../data/salaries.txt")
 
-mylist = f.readlines() # returns a list
+mylist = f.readlines()  # returns a list
 mydict = {}
 
 for line in mylist:
@@ -9,6 +9,3 @@ for line in mylist:
 
 print(mydict)
 print((mydict["Bill"]))
-
-
-    

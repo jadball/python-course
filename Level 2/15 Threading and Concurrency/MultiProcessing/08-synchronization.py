@@ -5,10 +5,12 @@
 ############################################################
 
 import multiprocessing as mp
-import time, os
+import os
+import time
 
 ''' output will be garbled unless synchronize = True '''
 synchronize = False
+
 
 def fn(lock):
     for n in range(50):
@@ -19,7 +21,8 @@ def fn(lock):
         if synchronize: lock.release()
         time.sleep(0.005)
 
-if __name__ == '__main__': 
+
+if __name__ == '__main__':
     processes = []
     lock = mp.Lock()
     for n in range(10):

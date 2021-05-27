@@ -1,5 +1,6 @@
-import os, subprocess
+import os
 import pkgutil
+import subprocess
 import webbrowser
 
 packageToInspect = "xlwt"
@@ -8,13 +9,13 @@ thePackage = __import__(packageToInspect)
 
 def walkPackages(package):
     for importer, modname, ispkg in pkgutil.iter_modules(package.__path__):
-        if ispkg: 
+        if ispkg:
             walkPackages(modname)
         else:
             cmd = "python -m pydoc -w {0}.{1}".format(package.__name__, modname)
             print(cmd)
             subprocess.call(cmd.split())
-            
+
 
 os.chdir('html')
 walkPackages(thePackage)

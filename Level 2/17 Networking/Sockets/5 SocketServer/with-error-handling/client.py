@@ -5,7 +5,7 @@
 ############################################################
 
 import socket
-import time
+
 
 def SendAndReceive(message):
     message = message.encode('UTF-8')
@@ -13,7 +13,7 @@ def SendAndReceive(message):
     response = mySocket.recv(100)
     response = response.decode('UTF-8')
     print(response)
-    
+
 
 print("Client")
 mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -26,5 +26,3 @@ try:
     SendAndReceive('junk....')
 except:
     mySocket.close()
-
-

@@ -1,7 +1,5 @@
-
-
 def getFileContents(filename):
-    try: 
+    try:
         with open(filename, "r") as f:
             allLines = f.readlines()
         return allLines
@@ -23,7 +21,6 @@ print("=======================")
 print(("Zoe : ", salary["Zoe"]))
 print()
 
-
 print("print dictionary in lexical order")
 print("=================================")
 keys = list(salary.keys())
@@ -34,4 +31,3 @@ for key in keys:
     print((key, ":", salary[key]))
 
 1
-

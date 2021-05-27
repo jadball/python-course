@@ -6,6 +6,7 @@
 
 from tkinter import *
 
+
 def main():
     root = Tk()
     root.title("Buttons")
@@ -15,26 +16,26 @@ def main():
     draw(mainframe)
     root.mainloop()
 
+
 def calculate():
     print("Button clicked")
-    
+
+
 def draw(frame):
-    Button(frame, 
-           text="Button1", 
-           activebackground="red", 
+    Button(frame,
+           text="Button1",
+           activebackground="red",
            command=calculate).grid(column=1, row=1, sticky=W)
-    
-    Button(frame, 
-           text="Button2", 
-           activebackground="yellow", 
+
+    Button(frame,
+           text="Button2",
+           activebackground="yellow",
            command=calculate).grid(column=3, row=2, sticky=E)
-    
-    Button(frame, 
-           text="Button3", 
-           activebackground="blue", 
+
+    Button(frame,
+           text="Button3",
+           activebackground="blue",
            command=calculate).grid(column=2, row=3, sticky=W)
 
 
 main()
-
-

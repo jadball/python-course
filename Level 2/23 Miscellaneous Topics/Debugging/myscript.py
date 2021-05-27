@@ -11,5 +11,3 @@ def f(x):
 
 for i in range(5):
     f(i)
-
- 

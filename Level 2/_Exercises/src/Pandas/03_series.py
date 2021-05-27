@@ -10,4 +10,3 @@ df = pd.read_csv("../MiniProject/wtk_site_metadata.csv")
 series = df['State']
 series = series.drop_duplicates()
 print(series)
-

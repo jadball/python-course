@@ -15,7 +15,7 @@ try:
         total += int(line)
 except IOError as reason:
     print(reason)
-finally:        
+finally:
     if inFile: inFile.close()
 
 print(f"Total = {total}")

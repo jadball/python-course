@@ -1,9 +1,3 @@
-import os, setPath
+import os
+
 os.system("pip search speech")
-
-
-
-    
-
-
-

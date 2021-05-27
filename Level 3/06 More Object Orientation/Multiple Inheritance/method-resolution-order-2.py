@@ -5,18 +5,30 @@
 ############################################################
 
 o = object
-class a(o): 
-    def f(self): print("a", end=' '); super(a,self).f()
-class b(o): 
-    def f(self): print("b", end=' '); super(b,self).f()
-class c(o): 
+
+
+class a(o):
+    def f(self): print("a", end=' '); super(a, self).f()
+
+
+class b(o):
+    def f(self): print("b", end=' '); super(b, self).f()
+
+
+class c(o):
     def f(self): print("c", end=' ')
-class x(a): 
-    def f(self): print("x", end=' '); super(x,self).f()
-class y(a): 
-    def f(self): print("y", end=' '); super(y,self).f()
-class z(x,b,y,c): 
-    def f(self): print("z", end=' '); super(z,self).f()
+
+
+class x(a):
+    def f(self): print("x", end=' '); super(x, self).f()
+
+
+class y(a):
+    def f(self): print("y", end=' '); super(y, self).f()
+
+
+class z(x, b, y, c):
+    def f(self): print("z", end=' '); super(z, self).f()
 
 
 for clazz in x.mro():
@@ -45,7 +57,6 @@ print()
 
 for clazz in z.mro():
     print(str(clazz))
-print(z.__mro__)    
+print(z.__mro__)
 t = z()
 t.f()
-

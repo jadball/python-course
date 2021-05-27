@@ -1,6 +1,4 @@
-import sys, os
 from single_step import s
-
 
 code1 = r"""
 from django.conf.urls import url
@@ -22,8 +20,6 @@ urlpatterns = [
 ]
 """
 
-
 s('cd src/mysite')
-s('cat <<XXX >polls/urls.py ' + code1 + '\nXXX' )
-s('cat <<XXX >mysite/urls.py ' + code2 + '\nXXX' )
-
+s('cat <<XXX >polls/urls.py ' + code1 + '\nXXX')
+s('cat <<XXX >mysite/urls.py ' + code2 + '\nXXX')

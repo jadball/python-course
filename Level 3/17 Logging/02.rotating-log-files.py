@@ -1,5 +1,4 @@
 import glob
-import logging
 import logging.handlers
 
 LOG_FILENAME = 'logs/rotation.out'
@@ -10,7 +9,7 @@ my_logger.setLevel(logging.DEBUG)
 
 # Add the log message handler to the logger
 handler = logging.handlers.RotatingFileHandler(
-              LOG_FILENAME, maxBytes=20000, backupCount=5)
+    LOG_FILENAME, maxBytes=20000, backupCount=5)
 
 my_logger.addHandler(handler)
 

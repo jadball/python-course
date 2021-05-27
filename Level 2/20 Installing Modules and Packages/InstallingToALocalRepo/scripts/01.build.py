@@ -1,5 +1,5 @@
-import os, shutil
-import setPath
+import os
+import shutil
 
 os.chdir("../src")
 

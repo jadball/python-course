@@ -1,9 +1,10 @@
 #
 # The scipy.special module includes a large number of Bessel-functions
 #
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 from scipy.special import jn
+
 fig, ax = plt.subplots()
 
 # Bessel's equation arises when finding separable solutions to Laplace's equation and the Helmholtz

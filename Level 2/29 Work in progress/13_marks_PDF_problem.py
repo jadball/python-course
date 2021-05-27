@@ -1,6 +1,7 @@
-from PyPDF2 import PdfFileWriter, PdfFileReader
+from PyPDF2 import PdfFileReader
+
 filename = "/Users/seddon/mark.pdf"
-#from tika import parser
+# from tika import parser
 import pikepdf
 
 # opens a PDF with restrictive editing enabled, but that still 

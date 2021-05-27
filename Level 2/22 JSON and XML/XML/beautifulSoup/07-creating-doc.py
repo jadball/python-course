@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup, NavigableString
 
-
-soup =  BeautifulSoup(features='html5lib')
+soup = BeautifulSoup(features='html5lib')
 
 # create tags
 tag1 = soup.new_tag("person")
@@ -26,8 +25,4 @@ print(soup)
 print("----------------")
 print(soup.prettify())
 
-
 1
-    
-
-

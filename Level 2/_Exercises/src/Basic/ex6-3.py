@@ -23,23 +23,22 @@ class Particle:
         self.name = name
         self.s0 = s0
         self.v0 = v0
-        
+
     def accelerate(self, a, t):
         # dv/dt = a
         # ds/dt = v
         # v = ∫a.dt = at + s0
         # s = ∫v.dt = ∫at.dt = at^2/2 + s0.t + v0
         self.v = a * t + self.s0
-        self.s = a * t**2 + self.s0 * t + self.v0
-    
+        self.s = a * t ** 2 + self.s0 * t + self.v0
+
     def getPosition(self):
         return self.s
-    
+
     def getVelocity(self):
         return self.v
-    
-    
+
+
 p1 = Particle("p1", np.array([0.5, 1.0, -0.2]), np.array([1.0, 0.3, -0.5]))
 p1.accelerate(a=np.array([5.2, 2.4, 3.1]), t=10)
 print(p1.getPosition(), p1.getVelocity())
-

@@ -5,17 +5,37 @@
 ############################################################
 
 O = object
+
+
 class A(O): pass
+
+
 class B(O): pass
+
+
 class C(O): pass
+
+
 class D(O): pass
+
+
 class E(O): pass
+
+
 # mro's of above classes are trivial
 
-class K(A,B,C): pass
-class L(D,B,E): pass
-class M(D,A): pass
-class Z(K,L,M): pass
+class K(A, B, C): pass
+
+
+class L(D, B, E): pass
+
+
+class M(D, A): pass
+
+
+class Z(K, L, M): pass
+
+
 # mro's of above classes are complicated
 
 # mro(K) = KABC 
@@ -52,6 +72,7 @@ print()
 for clazz in Z.mro():
     print(str(clazz))
 
+
 # mro would put C before D, but this contradicts mro(Z)
 # hence this class is illegal
-class Y(Z,C,D): pass
+class Y(Z, C, D): pass

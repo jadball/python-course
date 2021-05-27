@@ -3,16 +3,18 @@
 # Building a CRUD application with Flask and SQLAlchemy
 # Gareth Dwyer
 
+import webbrowser
 from threading import Thread
+
 from flask import Flask, request, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
-import webbrowser
-import wait
 
+import wait
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///books.db"
 db = SQLAlchemy(app)
+
 
 class Book(db.Model):
     title = db.Column(db.String(80), unique=True, nullable=False, primary_key=True)
@@ -21,13 +23,13 @@ class Book(db.Model):
         return "<Title: {}>".format(self.title)
 
 
-class Server:    
+class Server:
     def __init__(self, app):
         print("serving on localhost, port 5000")
         app.debug = True
         app.run(use_reloader=False)
         Server.app = app
-        
+
     @app.route("/", methods=["GET", "POST"])
     def home():
         if request.form:
@@ -36,7 +38,7 @@ class Server:
             db.session.commit()
         books = Book.query.all()
         return render_template("home.html", books=books)
-    
+
     @app.route("/update", methods=["POST"])
     def update():
         newtitle = request.form.get("newtitle")
@@ -45,6 +47,7 @@ class Server:
         book.title = newtitle
         db.session.commit()
         return redirect("/")
+
     @app.route("/delete", methods=["POST"])
     def delete():
         title = request.form.get("title")
@@ -52,6 +55,7 @@ class Server:
         db.session.delete(book)
         db.session.commit()
         return redirect("/")
+
 
 def client():
     wait.untilServerRunning("127.0.0.1", 5000)
@@ -63,7 +67,5 @@ def client():
 Thread(target=client).start()
 db.create_all()
 
-
 if __name__ == "__main__":
     Server(app)
-

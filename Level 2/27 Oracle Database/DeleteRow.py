@@ -1,6 +1,4 @@
-import cx_Oracle
 from MyConnection import ConnectToOracle, GetCursor
-from PrintSalaryTable import PrintSalaryTable
 
 
 def DeleteRow(connection, name):
@@ -13,12 +11,9 @@ def DeleteRow(connection, name):
         print(reason)
         connection.rollback()
 
-if __name__ == "__main__":
-	connection = ConnectToOracle()
-	DeleteRow(connection, "George")
 
+if __name__ == "__main__":
+    connection = ConnectToOracle()
+    DeleteRow(connection, "George")
 
 1
-
-
-

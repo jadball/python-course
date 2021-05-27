@@ -7,4 +7,3 @@ import pandas as pd
 df = pd.read_csv("../MiniProject/wtk_site_metadata.csv")
 for column in df.columns:
     print(column)
-    

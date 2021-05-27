@@ -1,6 +1,8 @@
 class MyImplemention:
     def f1(self): print("this is f1()")
+
     def f3(self): print("this is f3()")
+
 
 x = MyImplemention()
 

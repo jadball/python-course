@@ -1,6 +1,8 @@
-import subprocess,os,sys
+import os
+import subprocess
+import sys
+
 sys.path.append('../..')
-import set_paths
 
 os.environ["ARCHFLAGS"] = "-arch x86_64"
 

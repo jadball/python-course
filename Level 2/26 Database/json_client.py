@@ -1,5 +1,6 @@
-from urllib.request import urlopen
 import json
+from urllib.request import urlopen
+
 
 # send a request to the server with a query string
 # the server will add 100 to each parameter and return the result as JSON
@@ -18,6 +19,7 @@ def send_data(url):
     print((type(pythonDictionary)))
     print(pythonDictionary)
 
+
 url = "http://localhost:8002/anything?x=1&y=2&z=3&x=4&y=7&x=3"
 send_data(url)
 
@@ -26,5 +28,3 @@ send_data(url)
 
 url = "http://localhost:8002/anything?junk=xx"
 send_data(url)
-
-

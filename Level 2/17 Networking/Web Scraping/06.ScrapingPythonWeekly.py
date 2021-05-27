@@ -20,15 +20,13 @@
 
 reader = MboxrdStorageReader(dataDir + "ExampleMbox.mbox", False)
 
-
 eml = reader.read_next_message()
 
 # Read all messages in a loop
 while (eml is not None):
-
     # Manipulate message - show contents
     print("Subject: " + eml.subject)
-    #Save this message in EML or MSG format
+    # Save this message in EML or MSG format
     eml.save(eml.subject + "_out.eml", aspose.email.SaveOptions.default_eml)
     eml.save(eml.subject + "_out.msg", aspose.email.SaveOptions.default_msg_unicode)
 

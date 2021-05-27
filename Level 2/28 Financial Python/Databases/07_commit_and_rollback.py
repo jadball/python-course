@@ -9,6 +9,7 @@ def displayTable(connection):
     for row in rows:
         print(row)
 
+
 try:
     connection = lite.connect('test.db')
     cursor = connection.cursor()
@@ -35,6 +36,4 @@ except lite.Error as e:
 finally:
 
     if connection:
-        connection.close() 
-        
-        
+        connection.close()

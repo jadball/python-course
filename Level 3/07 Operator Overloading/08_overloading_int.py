@@ -1,4 +1,4 @@
-class Time:    
+class Time:
     def __init__(self, hrs, min):
         self.hrs = hrs
         self.min = min
@@ -18,10 +18,11 @@ class Time:
     # cast operator
     def __int__(self):
         return self.hrs * 60 + self.min
-    
+
     # used by print
     def __str__(self):
         return "Time is: " + str(self.hrs) + " hrs," + str(self.min) + " mins"
+
 
 t = Time(7, 10)
 n = int(t)

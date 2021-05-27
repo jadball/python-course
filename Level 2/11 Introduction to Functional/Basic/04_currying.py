@@ -2,7 +2,9 @@
 def func(a, b, c, d, e):
     return a, b, c, d, e
 
+
 print(func(1, 2, 3, 4, 5))
+
 
 # curried version that takes 1 arg
 def f(a):
@@ -11,11 +13,16 @@ def f(a):
             def i(d):
                 def j(e):
                     return a, b, c, d, e
+
                 return j
+
             return i
+
         return h
+
     return g
- 
+
+
 # f can be called in a variety of ways
 a = f(1)
 b = f(1)(2)
@@ -29,7 +36,3 @@ print(b(3)(4)(5))
 print(c(4)(5))
 print(d(5))
 print(e)
-
-
-
- 

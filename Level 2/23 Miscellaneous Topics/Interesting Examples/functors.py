@@ -6,12 +6,13 @@
 
 # test data
 salary = {
-          "John"  : 47000,
-          "Mary"  : 24000,
-          "Zoe"   : 17000,
-          "Carla" : 34000,
-          "Pedro" : 25000,
-          }
+    "John": 47000,
+    "Mary": 24000,
+    "Zoe": 17000,
+    "Carla": 34000,
+    "Pedro": 25000,
+}
+
 
 # library code simulating findIf C++ algorithm
 def findIf(hash, predicate):
@@ -30,14 +31,17 @@ def lessThan21K(param):
     else:
         return False
 
+
 def lessThan25K(param):
     if param < 25000:
         return True
     else:
         return False
 
+
 print(findIf(salary, lessThan21K))
 print(findIf(salary, lessThan25K))
+
 
 # method 2: use a Functor
 class Functor:
@@ -46,28 +50,26 @@ class Functor:
             return True
         else:
             return False
-        
+
     def __init__(self, s):
         self.salary = s
-        
+
+
 print(findIf(salary, Functor(21000)))
 print(findIf(salary, Functor(25000)))
 
 
 # method 3: add attribute to funtion
 def lessThan(param):
-    if param < lessThan.salary: # uses attribute of function
+    if param < lessThan.salary:  # uses attribute of function
         return True
     else:
         return False
+
 
 lessThan.salary = 21000
 print(findIf(salary, lessThan))
 lessThan.salary = 25000
 print(findIf(salary, lessThan))
-
-
-
-    
 
 1

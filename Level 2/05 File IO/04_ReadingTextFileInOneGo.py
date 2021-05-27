@@ -5,19 +5,19 @@
 ############################################################
 
 def getFileContents(filename):
-    try: 
+    try:
         f = open(filename, "r")
         allLines = f.readlines()
         return allLines
     except IOError as e:
         print(e)
     finally:
-        try: 
+        try:
             f.close()
-        except: 
-            pass    # can't do anything if close throws
+        except:
+            pass  # can't do anything if close throws
+
 
 lines = getFileContents("data/hello.txt")
 for line in lines:
     print("--{}".format(line), end="")
-    

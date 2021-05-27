@@ -1,14 +1,14 @@
-import pandas as pd
-import numpy as np
 import geopandas.datasets
 import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 
 pd.set_option('display.precision', 1)
 pd.set_option('display.width', 200)
 pd.set_option('display.max_columns', 500)
 
 # setup plot
-plt.figure(figsize=(13,8))
+plt.figure(figsize=(13, 8))
 plt.gcf().canvas.set_window_title('GeoPandas')
 ax = plt.gca()
 ax.set_title("WIND Data Points in Texas")
@@ -44,6 +44,6 @@ ax.set_ylim([20, 55])
 # change the aspect ratio because latitude needs scaling to Mercator
 # but setting up a custom scale is too complicated
 # the scaling will be correct for 40 degrees latitude
-ax.set_aspect(1/np.cos(40.0*np.pi/180.0))
+ax.set_aspect(1 / np.cos(40.0 * np.pi / 180.0))
 
 plt.show()

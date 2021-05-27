@@ -11,5 +11,5 @@ pd.set_option('display.width', None)
 pd.set_option('display.max_rows', None)
 
 df = pd.read_csv("../MiniProject/wtk_site_metadata.csv")
-df['power'] = df.apply(lambda row:row.capacity_factor*row.wind_speed, raw=True, axis=1)
+df['power'] = df.apply(lambda row: row.capacity_factor * row.wind_speed, raw=True, axis=1)
 print(df)

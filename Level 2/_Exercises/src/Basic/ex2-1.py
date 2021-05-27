@@ -3,6 +3,7 @@ Write a program that inputs a 4 digit year and then
 calculates whether or not it is a leap year.
 """
 
+
 def isLeap(year):
     if year % 400 == 0:
         return True
@@ -12,6 +13,7 @@ def isLeap(year):
         return True
     else:
         return False
+
 
 year = 2021
 if isLeap(year):
@@ -36,4 +38,3 @@ if isLeap(year):
     print(f"{year} is a leap year")
 else:
     print(f"{year} is NOT a leap year")
-

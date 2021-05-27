@@ -9,11 +9,12 @@
 
 def powers():
     x = 1
-    while(x < 1000):
+    while (x < 1000):
         x = x * 2
         yield x
-        pass        # just to show execution resumes after the yield
+        pass  # just to show execution resumes after the yield
     return
+
 
 # calling the function produces a generator object, which is also an iterator
 g = powers()
@@ -22,7 +23,6 @@ print(g)
 # check that g has both iterator methods
 print("Does g have an '__iter__' function:", hasattr(g, "__iter__"))
 print("Does g have an '__next__' function:", hasattr(g, "__next__"))
-
 
 # check the identity of the generator object
 print(f"{id(g):x}")
@@ -41,4 +41,3 @@ print(next(g))
 # use g in a loop as an iterator
 for n in powers():
     print(n)
-    

@@ -5,11 +5,11 @@
 ############################################################
 
 # set up a dictionary
-hash = { 
-            2507: ('Red', 'Green', 'Blue'),
-             672: ('Black', 'White', 'Grey'),
-            3496: ('Orange', 'Purple', 'Yellow')
-       }
+hash = {
+    2507: ('Red', 'Green', 'Blue'),
+    672: ('Black', 'White', 'Grey'),
+    3496: ('Orange', 'Purple', 'Yellow')
+}
 
 print(hash[672])
 

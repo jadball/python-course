@@ -1,10 +1,9 @@
-import os, sys
-from PIL import Image
+import os
 
+from PIL import Image
 
 os.chdir("images")
 infile = "DSCN0639.JPG"
-
 
 outfile = os.path.splitext(infile)[0] + ".greyscale.jpg"
 try:
@@ -14,4 +13,3 @@ try:
     img.save(outfile, "JPEG")
 except IOError as e:
     print(e)
-    

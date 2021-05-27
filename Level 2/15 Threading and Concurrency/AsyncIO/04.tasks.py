@@ -1,16 +1,19 @@
 import asyncio
 import time
+
 import requests
 
-    
+
 async def download(site):
     def get(n):
         for _ in range(5):
             print(f"downloading {site}")
             requests.get(site)
+
     get(5)
-    await asyncio.sleep(0)      # standard way to yield to event loop
+    await asyncio.sleep(0)  # standard way to yield to event loop
     get(5)
+
 
 async def main():
     # schedule downloads to be run in parallel
@@ -25,5 +28,5 @@ async def main():
     await task3
     print(f"finished at {time.strftime('%X')}")
 
-asyncio.run(main())
 
+asyncio.run(main())

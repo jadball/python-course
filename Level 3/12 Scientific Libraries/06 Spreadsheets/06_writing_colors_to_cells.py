@@ -1,14 +1,15 @@
-from openpyxl import Workbook
+import openpyxl
 from openpyxl import load_workbook
 from openpyxl.styles import PatternFill
-import openpyxl
+
 
 def writeToCell(row, col, color):
     cell = f"{row}{col}"
     row = ws[cell].row
     col = ws[cell].column
-    fill = PatternFill(start_color=f"{color}", fill_type = "solid")
+    fill = PatternFill(start_color=f"{color}", fill_type="solid")
     ws.cell(row, col).fill = fill
+
 
 wb = load_workbook(filename='data/colored.xlsx')
 ws = wb.active

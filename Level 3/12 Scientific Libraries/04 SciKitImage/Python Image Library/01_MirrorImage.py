@@ -1,10 +1,10 @@
-import os, sys
-from PIL import Image
+import os
 
+from PIL import Image
 
 os.chdir("images")
 infile = "plastic_container.JPG"
-#infile = "car.jpeg"
+# infile = "car.jpeg"
 outfile = os.path.splitext(infile)[0] + ".flipped.jpg"
 try:
     img = Image.open(infile)
@@ -15,4 +15,3 @@ try:
     img.show()
 except IOError as e:
     print(e)
-    

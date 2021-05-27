@@ -1,10 +1,12 @@
 # switch off logging
 import os
+
 os.environ["KIVY_NO_CONSOLELOG"] = "1"
 
-from kivy.uix.button import Button 
+from kivy.uix.button import Button
 from kivy.app import App
 from kivy.core.window import Window
+
 
 class MyWidget(Button):
     '''
@@ -40,29 +42,31 @@ class MyWidget(Button):
             will be invoked immediately.
         Examples of 'pos' and 'size' change callbacks are shown below:
     '''
+
     def __init__(self, name, **kwargs):
         self.name = name
         super().__init__(**kwargs)
-            
+
     def on_pos(self, button, pos):
         print(type(pos))
         print(f"window size = {Window.size}")
         print(f"object name = {button.name}")
         print(f"pos         = {pos}")
-    
+
     def on_size(self, button, size):
         print(f"window size = {Window.size}")
         print(f"object name = {button.name}")
         print(f"size        = {size}")
-        
-    
+
+
 class KivyButton(App):
     def build(self):
         self.title = 'Default Binding functions for Buttons'
         b = MyWidget(name='Button-1',
-                     text="Hit me!", 
-                     pos_hint={'x':0.5, 'y':0.5}, 
+                     text="Hit me!",
+                     pos_hint={'x': 0.5, 'y': 0.5},
                      size_hint=(.25, .25))
         return b
+
 
 KivyButton().run()

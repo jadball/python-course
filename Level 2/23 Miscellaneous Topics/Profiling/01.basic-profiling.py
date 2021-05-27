@@ -1,4 +1,5 @@
-import sys, myprogram, cProfile
+import cProfile
+import sys
+
 sys.path.append("src")
 cProfile.run('myprogram.foo()')
-

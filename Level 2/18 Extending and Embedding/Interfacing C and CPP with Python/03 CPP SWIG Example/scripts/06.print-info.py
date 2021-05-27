@@ -1,7 +1,8 @@
-import subprocess,os,sys
+import os
+import sys
 
 sys.path.append('../..')
-import set_paths
+
 os.chdir("../src")
 
 installedFiles = open("files.txt", "r")
@@ -13,4 +14,3 @@ for file in installedFiles:
             print(f.read())
         except:
             pass
-        

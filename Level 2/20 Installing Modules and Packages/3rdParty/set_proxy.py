@@ -4,4 +4,5 @@ def setProxy(url):
     """
     os.environ["HTTP_PROXY"] = url
 
+
 setProxy("http://wwwcache.rl.ac.uk:8080")

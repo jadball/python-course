@@ -1,6 +1,6 @@
 import asyncio
 import time
-import types
+
 
 # use yield, yield from inside coroutines that are not async generators
 
@@ -8,6 +8,7 @@ def f():
     time.sleep(1)
     yield
     return
+
 
 @asyncio.coroutine
 def aaa():
@@ -19,6 +20,7 @@ def aaa():
     print("aaa")
     print("aaa")
 
+
 @asyncio.coroutine
 def bbb():
     print("bbb")
@@ -28,6 +30,7 @@ def bbb():
     print("bbb")
     print("bbb")
     print("bbb")
+
 
 async def main():
     task1 = asyncio.create_task(aaa())
@@ -39,5 +42,6 @@ async def main():
     await task2
 
     print(f"finished at {time.strftime('%X')}")
+
 
 asyncio.run(main())

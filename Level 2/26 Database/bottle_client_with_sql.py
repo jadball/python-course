@@ -33,8 +33,8 @@ r = requests.post(base + "susan")
 print(r.json())
 
 # but update should work
-susan =  {'age': '32', 'city': 'Edinburgh'}
-r = requests.put(base + "susan",  params = susan)
+susan = {'age': '32', 'city': 'Edinburgh'}
+r = requests.put(base + "susan", params=susan)
 print(r.json())
 
 r = requests.get(base + "susan")
@@ -43,4 +43,3 @@ print(r.json())
 # this should generate an error
 r = requests.get(base + "/xyz")
 print(r.json())
-

@@ -7,5 +7,5 @@ import numpy as np
 
 a = np.arange(10, 14)
 b = np.repeat(a, 6)
-b = b.reshape((4,6))
+b = b.reshape((4, 6))
 print(b)

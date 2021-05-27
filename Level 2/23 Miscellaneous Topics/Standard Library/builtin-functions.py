@@ -13,4 +13,3 @@ print(divmod(47, 10))
 print(reversed("ABCDEFGIJKLM"))
 
 1
-

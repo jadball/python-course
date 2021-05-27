@@ -19,7 +19,7 @@ try:
 except IOError as e:
     print("Reading data from file failed!")
     print(e)
-finally: 
+finally:
     f.close()
 
 # 2. Sort the keys
@@ -29,4 +29,3 @@ sortedKeys.sort()
 # 3. Iterate through sorted list
 for key in sortedKeys:
     print(key + ":" + phones[key])
-    

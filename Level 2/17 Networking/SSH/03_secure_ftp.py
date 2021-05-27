@@ -1,5 +1,7 @@
 import paramiko
+
 import config
+
 
 class Server(object):
     def __init__(self, username, password, hostname, port=22):
@@ -26,15 +28,14 @@ class Server(object):
         self.close()
 
 
-paramiko.util.log_to_file('ssh.log') # sets up logging
+paramiko.util.log_to_file('ssh.log')  # sets up logging
 
 ubuntuServer = Server(username=config.USER,
-                      password=config.PASSWORD, 
-                      hostname=config.HOSTNAME, 
-                      port=22) 
+                      password=config.PASSWORD,
+                      hostname=config.HOSTNAME,
+                      port=22)
 
 # upload and download a file
 ubuntuServer.upload(local="files/test2.txt", remote="test2.txt")
 ubuntuServer.download(remote="test2.txt", local="files/test2.copy.txt")
 ubuntuServer.close()
-

@@ -12,4 +12,3 @@ df2 = pd.read_csv("data.csv")
 
 # save dataframe to new JSON file
 df2.to_json("data2.json")
-

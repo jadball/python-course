@@ -1,9 +1,10 @@
 import sys
+
 from single_step import s
 
+githubUserName = "Chris Seddon"  # change this
+githubEmail = "seddon-software@keme.co.uk"  # change this
 
-githubUserName = "Chris Seddon"                # change this
-githubEmail = "seddon-software@keme.co.uk"      # change this
 
 # create local repo
 def windows():
@@ -13,11 +14,12 @@ def windows():
     s('md myrepo')
     s('cd myrepo')
     s('git init')
-    
+
     # add a README file and commit
     s('echo "This is my new repo" > README.txt')
-    s('git add README.txt') 
+    s('git add README.txt')
     s('git commit -m "first commit"')
+
 
 def unix():
     s(f'git config --global user.name "{githubUserName}"')
@@ -26,10 +28,10 @@ def unix():
     s('mkdir myrepo')
     s('cd myrepo')
     s('git init')
-    
+
     # add a README file and commit
     s('echo "This is my new repo" > README.txt')
-    s('git add README.txt') 
+    s('git add README.txt')
     s('git commit -m "first commit"')
 
 

@@ -1,28 +1,32 @@
-import numpy as np
-import matplotlib.pyplot as plt
 import PIL.Image as Image
+import matplotlib.pyplot as plt
+import numpy as np
+import scipy.ndimage as nd
 import skimage.measure as measure
 import skimage.morphology as morphology
-import scipy.ndimage as nd
 
-def load_image( infilename ) :
-    img = Image.open( infilename )
-    data = np.asarray( img, dtype="int32" )
+
+def load_image(infilename):
+    img = Image.open(infilename)
+    data = np.asarray(img, dtype="int32")
     return data
+
 
 def set_title(title):
     figure = plt.gcf()
     figure.canvas.set_window_title(title)
 
+
 def enhanceImage(image, threshold):
-    image[ image[:,:] <= threshold ] = 0
-    image[ image[:,:]  > threshold ] = 255
-    
+    image[image[:, :] <= threshold] = 0
+    image[image[:, :] > threshold] = 255
+
+
 rice = load_image("images/rice.jpg")
 print("Shape of raw image: {}".format(rice.shape))
 
 # algorithms work with monochrome images
-rice = rice[:,:,0]
+rice = rice[:, :, 0]
 print(rice)
 print("Shape of red image: {}".format(rice.shape))
 set_title("monchrome image")
@@ -60,6 +64,5 @@ for item in props:
     message = str(item.label)
     plt.text(x, y, message, color="white")
 set_title("labelling {} objects".format(len(props)))
-plt.imshow(rice, interpolation = "none", cmap = "jet")
+plt.imshow(rice, interpolation="none", cmap="jet")
 plt.show()
-

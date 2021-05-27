@@ -9,6 +9,7 @@ os.system("coverage html")
 
 filename = 'htmlcov/index.html'
 from urllib.request import pathname2url
+
 url = 'file://{}'.format(pathname2url(os.path.abspath(filename)))
 print(url)
 webbrowser.open_new(url)

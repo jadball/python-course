@@ -9,5 +9,3 @@ path_as_string = os.environ["PATH"]
 path_as_list = path_as_string.split(":")
 for entry in path_as_list:
     print(entry)
-
-

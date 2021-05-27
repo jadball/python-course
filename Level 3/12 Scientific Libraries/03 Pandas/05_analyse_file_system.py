@@ -1,34 +1,40 @@
-import os, pylab
+import os
+
+import pylab
+
 
 def set_title(title):
     figure = pylab.gcf()
     figure.canvas.set_window_title(title)
 
+
 def summarize_files(topdir):
-    headers = { 'path'     : "",
-                'filename' : "",
-                'size'     : "",
-                'ext'      : "",
-                'mtime'    : ""
+    headers = {'path': "",
+               'filename': "",
+               'size': "",
+               'ext': "",
+               'mtime': ""
                }
     filedata = [headers]
     for path, dirs, files in os.walk(topdir):
         for name in files:
-            fullname = os.path.join(path,name)
+            fullname = os.path.join(path, name)
             if os.path.exists(fullname):
                 data = {
-                'path'     : path,
-                'filename' : name,
-                'size'     : os.path.getsize(fullname),
-                'ext'      : os.path.splitext(name)[1],
-                'mtime'    : os.path.getmtime(fullname)
-            }
+                    'path': path,
+                    'filename': name,
+                    'size': os.path.getsize(fullname),
+                    'ext': os.path.splitext(name)[1],
+                    'mtime': os.path.getmtime(fullname)
+                }
             filedata.append(data)
     return filedata
 
+
 import pandas
+
 filedata = pandas.DataFrame(summarize_files("/Users/seddon/home/workspace"))
-#filedata = pandas.DataFrame(summarize_files("/dls_sw/i21/scripts"))
+# filedata = pandas.DataFrame(summarize_files("/dls_sw/i21/scripts"))
 print("Top 5 most common file extensions:")
 print(filedata['ext'].value_counts()[:5])
 pyfiles = filedata[filedata['ext'] == '.py']

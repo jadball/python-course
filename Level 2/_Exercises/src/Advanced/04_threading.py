@@ -6,43 +6,41 @@
 
 import random
 import time
-import sys
-
-from threading import Thread
 from threading import Event
+from threading import Thread
+
 
 class Share:
     # prices are stored in an internal list
-    
+
     def __init__(self, startPrice):
         '''set up initial list of prices'''
         self.prices = [int(startPrice)]
 
     def nextPrice(self):
         '''generate a new share price'''
-        
+
         # simulate taking some time to get a new share price
         time.sleep(0.01 * random.random())
 
         # calculate change in price and append to list
         delta = int(random.random() * 100 - 50)
-        currentPrice = self.prices.pop() # easy way to get last price
-        self.prices.append(currentPrice) # must push it back again
+        currentPrice = self.prices.pop()  # easy way to get last price
+        self.prices.append(currentPrice)  # must push it back again
         currentPrice += delta
-        self.prices.append(currentPrice) # append new price
-        
+        self.prices.append(currentPrice)  # append new price
+
     def getPrices(self):
-        '''get list of recent prices''' 
+        '''get list of recent prices'''
         prices = self.prices
         currentPrice = self.prices.pop()
         self.prices = [currentPrice]
-        return prices # return list as it was before reset
-    
+        return prices  # return list as it was before reset
+
     def reset(self):
         '''reset list of prices'''
         currentPrice = self.prices.pop()
         self.prices = [currentPrice]
-
 
 
 def ticker(company):
@@ -50,10 +48,10 @@ def ticker(company):
     global resetEvent
 
     def getPrices(count):
-        for i in range (1, count):
+        for i in range(1, count):
             company.nextPrice()
-        
-    for i in range (1, 25):
+
+    for i in range(1, 25):
         pricesAvailableEvent.wait()
         pricesAvailableEvent.clear()
         getPrices(10)
@@ -69,9 +67,9 @@ def monitor(company):
         count = myPrices.__len__()
         for price in myPrices:
             total += price
-        return total/count
-        
-    for i in range (1, 25):
+        return total / count
+
+    for i in range(1, 25):
         resetEvent.wait()
         resetEvent.clear()
         print(f"{Average(company.getPrices()):.2f}")
@@ -94,7 +92,4 @@ pricesAvailableEvent.set()
 thread1.join()
 thread2.join()
 
-print("\nEnd of main Thread") 
-
-
-
+print("\nEnd of main Thread")

@@ -25,6 +25,6 @@ try:
     print(next(iter))
     print(next(iter))
     print(next(iter))
-    print(next(iter))   # this fails
+    print(next(iter))  # this fails
 except:
     print("too many iterations")

@@ -9,7 +9,7 @@ import dis
 # The GIL is released every 15 msec, but not during an atomic operation
 # Operations consisting of a single byte code are thread safe
 
-dis.dis("x += 1")           # not thread safe
+dis.dis("x += 1")  # not thread safe
 #               0 LOAD_NAME                0 (x)
 #               2 LOAD_CONST               0 (1)
 #               4 INPLACE_ADD

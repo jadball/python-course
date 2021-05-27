@@ -20,5 +20,3 @@ if os.path.exists("myfile.txt"): print("'myfile.txt' exists")
 if os.path.isfile("myfile.txt"): print("'myfile.txt' exists and is not a directory")
 if os.path.isdir("d1"): print("'d1' is a directory")
 if os.path.isabs("/home/d1/myfile.txt"): print("'/home/d1/myfile.txt' is an absolute path")
-
-

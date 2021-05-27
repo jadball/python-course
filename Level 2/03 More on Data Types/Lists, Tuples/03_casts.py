@@ -5,7 +5,7 @@
 ############################################################
 
 aTuple = (2, 3, 5, 7, 11, 13, 17, 19, 17, 19)
-aList  = [2, 3, 5, 7, 11, 13, 17, 19, 17, 19]
+aList = [2, 3, 5, 7, 11, 13, 17, 19, 17, 19]
 aString = "ABCDEFGABC"
 
 myList = list(aTuple)
@@ -22,4 +22,3 @@ print(myList)
 
 mySet = set(aString)
 print(mySet)
-

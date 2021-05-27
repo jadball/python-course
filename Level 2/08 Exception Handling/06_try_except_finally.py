@@ -8,6 +8,7 @@ def f(x):
     if x > 50:
         raise Exception('exception thrown')
 
+
 try:
     x = 100
     f(x)
@@ -19,4 +20,3 @@ finally:
     print('finally block is always called ...')
 
 print("End of program")
-

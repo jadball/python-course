@@ -11,5 +11,5 @@ def displayInfo(baseFileName):
     except:
         pass
 
-displayInfo("GreetingPackage-1.0-py")
 
+displayInfo("GreetingPackage-1.0-py")

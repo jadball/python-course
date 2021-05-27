@@ -1,8 +1,9 @@
 import time
+
 from myprogram import *
 
 start_cpu = time.clock()  # ok for unix, but same as time.time on windows
-start_real= time.time()
+start_real = time.time()
 
 foo()
 

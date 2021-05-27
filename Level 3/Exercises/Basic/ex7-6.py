@@ -14,4 +14,4 @@ print("===================")
 
 for earth in lines:
     if fnmatch(earth, "*[Nn]ow*"):
-        print(earth, end="") 
+        print(earth, end="")

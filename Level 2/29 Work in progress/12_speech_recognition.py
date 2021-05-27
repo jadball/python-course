@@ -1,5 +1,5 @@
-import speech_recognition as sr
 import pocketsphinx
+import speech_recognition as sr
 
 r = sr.Recognizer()
 
@@ -10,20 +10,17 @@ print(sr.Microphone.list_microphone_names())
 
 with mic as source:
     r.adjust_for_ambient_noise(source)
-    #r.energy_threshold = 1000
-    #r.pause_threshold = 1
+    # r.energy_threshold = 1000
+    # r.pause_threshold = 1
     for n in range(10):
         try:
             print(".", end="")
             audio = r.listen(source)
-#             z = r.recognize_google(audio)
-#             print(z, n)
-            z = r.recognize_sphinx(audio, language="en-US", keyword_entries = [("yes",1)],
-                               show_all=pocketsphinx.pocketsphinx.Decoder)
+            #             z = r.recognize_google(audio)
+            #             print(z, n)
+            z = r.recognize_sphinx(audio, language="en-US", keyword_entries=[("yes", 1)],
+                                   show_all=pocketsphinx.pocketsphinx.Decoder)
             print(z.__dict__)
             print(f"{n}:{z.get_in_speech()}", end=" ")
         except Exception as e:
-            print(f"*** {e}", end="") 
-
-
-                   
+            print(f"*** {e}", end="")

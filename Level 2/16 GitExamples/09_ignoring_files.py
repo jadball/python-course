@@ -1,5 +1,7 @@
 import sys
+
 from single_step import s
+
 
 # create some empty files for use with git ignore
 def windows():
@@ -17,6 +19,7 @@ def windows():
     s('git commit -m "added some files with name beginning with f or g"')
     s('git push -u origin master')
 
+
 def unix():
     s('cd myrepo')
     s('touch f1 f2 f3 f4')
@@ -26,10 +29,8 @@ def unix():
     s('git commit -m "added some files with name beginning with f or g"')
     s('git push -u origin master')
 
+
 if sys.platform == "win32":
     windows()
 else:
     unix()
-
-
-

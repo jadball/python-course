@@ -4,7 +4,7 @@
 #
 ############################################################
 
-colors = ["red", "blue", "green", "white", "black"] 
+colors = ["red", "blue", "green", "white", "black"]
 print(colors[1])
 print(colors[1:3])
 print(colors[1:])

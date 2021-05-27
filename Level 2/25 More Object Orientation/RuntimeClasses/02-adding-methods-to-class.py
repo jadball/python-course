@@ -1,5 +1,6 @@
 import types
 
+
 # create a class that can dynamically add and remove methods
 class MyClass(object):
     @classmethod
@@ -14,12 +15,16 @@ class MyClass(object):
     def addLambda(cls, name, func):
         return setattr(cls, name, types.MethodType(func, cls))
 
+
 m = MyClass()
 
+
 # add methods to the class
-def square(self, x): return x**2
+def square(self, x): return x ** 2
+
+
 MyClass.addMethod(square)
-MyClass.addLambda("cube", lambda self, x : x**3)
+MyClass.addLambda("cube", lambda self, x: x ** 3)
 
 # check the dictionary
 print((MyClass.__dict__))
@@ -33,8 +38,11 @@ MyClass.removeMethod("square")
 MyClass.removeMethod("cube")
 
 # these calls will now fail
-try: m.square(7); 
-except: print("square failed")
-try: m.cube(8)
-except: print("cube failed")
-
+try:
+    m.square(7);
+except:
+    print("square failed")
+try:
+    m.cube(8)
+except:
+    print("cube failed")

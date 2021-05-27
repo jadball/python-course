@@ -1,7 +1,7 @@
 class Matrix:
     def __init__(self, data):
         self.data = data
-        
+
     def __getitem__(self, index):
         row = index[0]
         col = index[1]
@@ -18,5 +18,3 @@ try:
     print(m[6, 1])
 except Exception as e:
     print(e)
-
-

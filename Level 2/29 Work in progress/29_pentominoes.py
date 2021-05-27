@@ -11,14 +11,14 @@ every square on a chess board.
 '''
 
 import numpy as np
-import random
+
+f = np.array([[0, 1, 1],
+              [1, 1, 0],
+              [0, 1, 0]])
 
 
-f = np.array([[0,1,1],
-              [1,1,0],
-              [0,1,0]])
+def rotate90(x): return x.T
 
-def rotate90(x) : return x.T
 
 print(f)
 f2 = rotate90(f)

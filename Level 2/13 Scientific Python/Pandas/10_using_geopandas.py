@@ -1,6 +1,6 @@
-import pandas as pd
 import geopandas
 import matplotlib.pyplot as plt
+import pandas as pd
 
 df = pd.DataFrame(
     {'City': ['Buenos Aires', 'Brasilia', 'Santiago', 'Bogota', 'Caracas'],

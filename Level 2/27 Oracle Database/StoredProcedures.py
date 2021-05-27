@@ -1,13 +1,13 @@
 import cx_Oracle
-from MyConnection import ConnectToOracle, GetCursor
 
+from MyConnection import ConnectToOracle, GetCursor
 
 
 def UseStoredProcedure(connection, name, increase):
     try:
         cursor = GetCursor(connection)
         newSalary = cursor.var(cx_Oracle.NUMBER)
-        result = cursor.callproc('PYTHON.INCREASE_SALARY',[name, increase, newSalary])
+        result = cursor.callproc('PYTHON.INCREASE_SALARY', [name, increase, newSalary])
         print("result=", result)
         print("newSalary=", newSalary)
         print("newSalary=", newSalary.getvalue())
@@ -30,6 +30,3 @@ print("========================================")
 # this should succeed
 UseStoredProcedure(connection, name="Charles", increase=10000.0)
 print("========================================")
-
-
-

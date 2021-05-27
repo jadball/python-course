@@ -22,4 +22,3 @@ try:
     print(type(r), r)
 except CalledProcessError as e:
     print(f"Failed: {e}")
-    

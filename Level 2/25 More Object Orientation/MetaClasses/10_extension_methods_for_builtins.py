@@ -11,13 +11,15 @@
 class UpperList(list):
     pass
 
+
 def to_upper(self):
     for index, item in enumerate(self):
         self[index] = item.upper()
 
+
 UpperList.to_upper = to_upper
 
-mylist = UpperList(['i','g','o','r'])
+mylist = UpperList(['i', 'g', 'o', 'r'])
 mylist.to_upper()
 print(mylist)
 

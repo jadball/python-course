@@ -17,6 +17,7 @@ def CalculateQuartile(percent):
         quartile = 4
     print(f"{percent} is in quartile {quartile}")
 
+
 CalculateQuartile(17)
 CalculateQuartile(34)
 CalculateQuartile(56)

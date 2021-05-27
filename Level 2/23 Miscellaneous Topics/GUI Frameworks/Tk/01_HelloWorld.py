@@ -6,6 +6,7 @@
 
 from tkinter import *
 
+
 def main():
     root = Tk()
     root.title("Hello World")
@@ -15,13 +16,11 @@ def main():
     draw(mainframe)
     root.mainloop()
 
+
 def draw(frame):
-    Button(frame, 
-           text = "Hello World",
-           command = lambda : exit()).pack()
+    Button(frame,
+           text="Hello World",
+           command=lambda: exit()).pack()
 
 
 main()
-
-
-

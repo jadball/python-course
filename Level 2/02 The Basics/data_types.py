@@ -18,7 +18,7 @@ print(type(z))
 
 ############################################################
 # complex
-x = (+2.5-3.4j) - (-1.4+1.0j)
+x = (+2.5 - 3.4j) - (-1.4 + 1.0j)
 print(type(x))
 print(x)
 
@@ -30,7 +30,7 @@ print(x.imag)
 x = 1e4 + 0.1e-4
 format = "%32.20g"
 print(type(x))
-print((format % x)) 
+print((format % x))
 
 ############################################################
 # integers
@@ -47,7 +47,7 @@ print(x)
 
 ############################################################
 # None
-x = None   # => not defined
+x = None  # => not defined
 print(type(x))
 print(x)
 

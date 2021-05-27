@@ -1,7 +1,8 @@
+import numpy
+import pylab
 from PIL import Image
-import numpy, pylab
-import _03_fit_gaussian as fg
 
+import _03_fit_gaussian as fg
 
 
 def cropImage():
@@ -12,6 +13,7 @@ def cropImage():
     img = img.crop(box)
     img.show()
     return img
+
 
 img = cropImage()
 
@@ -34,13 +36,12 @@ x : {:.1f}
 y : {:.1f}
 width_x : {:.1f}
 width_y : {:.1f}""".format(x, y, width_x, width_y)
-pylab.text(x = 0.95, 
-           y = 0.05, 
-           s = legend, 
-           fontsize = 16, 
-           horizontalalignment = 'right', 
-           verticalalignment = 'bottom', 
-           transform = ax.transAxes)
+pylab.text(x=0.95,
+           y=0.05,
+           s=legend,
+           fontsize=16,
+           horizontalalignment='right',
+           verticalalignment='bottom',
+           transform=ax.transAxes)
 
 pylab.show()
-

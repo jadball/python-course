@@ -1,9 +1,10 @@
 # define a finite generator
 def fibonacci(max):
     a, b = 0, 1
-    while(b < max):
+    while (b < max):
         yield b
-        a, b = b, a+b
+        a, b = b, a + b
+
 
 # use generator in a loop
 for x in fibonacci(100):

@@ -1,6 +1,5 @@
-import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
+import matplotlib.pyplot as plt
 
 # show whole image
 img = mpimg.imread('macy_parade.jpg')
@@ -19,4 +18,3 @@ subImage = img[500:700, 1200:1700, 1]
 print(f"Image dimensions: {subImage.shape}")
 plt.imshow(subImage, cmap='gray', vmin=0, vmax=255)
 plt.show()
-

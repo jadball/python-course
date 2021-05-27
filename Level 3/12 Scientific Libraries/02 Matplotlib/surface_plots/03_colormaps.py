@@ -1,18 +1,17 @@
-from matplotlib import cm
-from matplotlib.ticker import LinearLocator, FormatStrFormatter
+import matplotlib.colors
 import matplotlib.pyplot as plt
 import numpy as np
-from mpl_toolkits.mplot3d import axes3d, Axes3D
-import matplotlib.colors
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+from mpl_toolkits.mplot3d import Axes3D
 
 X = np.arange(-5, 5, 0.25)
 Y = np.arange(-5, 5, 0.25)
 X, Y = np.meshgrid(X, Y)
-R = np.sqrt(X**2 + Y**2)
+R = np.sqrt(X ** 2 + Y ** 2)
 Z = np.sin(R)
 
-
-colormaps = [eval('cm.'+s) for s in dir(cm)]
+colormaps = [eval('cm.' + s) for s in dir(cm)]
 
 import time
 

@@ -1,4 +1,5 @@
-import os, sys
+import os
+import sys
 
 # remove previous docs
 os.system("rm -rf docs")
@@ -16,9 +17,9 @@ os.system('make html')
 
 # display docs in browser
 import webbrowser
-try: 
+
+try:
     url = "file:///" + os.getcwd().replace("\\", '/') + "/_build/html/index.html"
-    webbrowser.open_new_tab(url)    
+    webbrowser.open_new_tab(url)
 except Exception as e:
     print(e)
-

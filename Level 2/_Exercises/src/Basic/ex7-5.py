@@ -15,11 +15,10 @@ try:
             outFile.write(line)
 except IOError as reason:
     print(reason)
-finally:        
+finally:
     if inFile1: inFile1.close()
     if inFile2: inFile2.close()
     if inFile3: inFile3.close()
     if outFile: outFile.close()
-
 
 1

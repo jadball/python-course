@@ -36,5 +36,3 @@ print(type(x), x)
 # convert back to JSON
 s = json.dumps(x)
 print("complex JSON object:", s)
-
-

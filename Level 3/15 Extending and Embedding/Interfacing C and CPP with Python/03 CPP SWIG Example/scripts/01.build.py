@@ -1,6 +1,7 @@
-import subprocess,os,sys
+import os
+import sys
+
 sys.path.append('../..')
-import set_paths
 
 os.system("swig -version")
 os.chdir("../src")

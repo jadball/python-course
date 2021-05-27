@@ -1,5 +1,4 @@
 import argparse
-from argparse import Namespace
 
 # This example shows how to supply optional arguments (e.g. -v or --verbose)
 # The store_true option (in this case for verbose) means:

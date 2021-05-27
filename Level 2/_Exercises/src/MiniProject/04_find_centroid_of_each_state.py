@@ -1,5 +1,5 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 pd.set_option('display.precision', 1)
 pd.set_option('display.width', 200)
@@ -14,7 +14,7 @@ states = states.drop_duplicates().values
 # use aggregate to calculate the centroid of each state
 dfs_of_states = []
 for state in states:
-    df_of_state = df[['latitude', 'longitude', 'State']][df['State']==state]
+    df_of_state = df[['latitude', 'longitude', 'State']][df['State'] == state]
     df_of_state = df_of_state.groupby(['State']).aggregate(np.mean)
     df_of_state['State'] = state
     dfs_of_states.append(df_of_state)

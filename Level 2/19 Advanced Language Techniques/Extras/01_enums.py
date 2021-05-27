@@ -4,12 +4,14 @@ MON, TUE, WED, THU, FRI, SAT, SUN = list(range(7))
 
 print(WED)
 
+
 def isWeekend(day):
     if day in (SAT, SUN):
         return True
     else:
         return False
-        
+
+
 if isWeekend(MON): print("weekend")
 if isWeekend(TUE): print("weekend")
 if isWeekend(WED): print("weekend")

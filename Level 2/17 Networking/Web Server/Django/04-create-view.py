@@ -1,4 +1,3 @@
-import sys, os
 from single_step import s
 
 s('cd src/mysite/polls')
@@ -10,4 +9,4 @@ def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 """
 
-s('cat <<XXX >views.py ' + code + '\nXXX' )
+s('cat <<XXX >views.py ' + code + '\nXXX')

@@ -3,7 +3,7 @@ from PyPDF2 import PdfFileWriter, PdfFileReader
 inputFile = "pdfs/simple.pdf"
 output = PdfFileWriter()
 input = PdfFileReader(open(inputFile, "rb"))
-    
+
 # add watermark to each page
 for page in range(0, input.getNumPages()):
     # avoid cloning the watermark page by opening the file multiple times    
@@ -21,7 +21,7 @@ output.getPage(2).mergePage(input.getPage(2).rotateCounterClockwise(90))
 
 # add page 3, unchanged:
 output.getPage(3).mergePage(input.getPage(3))
-    
+
 # add page 4, crop it to half size:
 page4 = input.getPage(4)
 page4.mediaBox.upperRight = (
@@ -31,7 +31,7 @@ page4.mediaBox.upperRight = (
 output.getPage(4).mergePage(page4)
 
 # add remainder of pages
-for page in range(5, input.getNumPages()):    
+for page in range(5, input.getNumPages()):
     output.getPage(page).mergePage(input.getPage(page))
 
 # encrypt your new PDF and add a password

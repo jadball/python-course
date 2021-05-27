@@ -1,28 +1,22 @@
 from openpyxl import Workbook
-from openpyxl.utils import get_column_letter
-from openpyxl.chart import (
-    AreaChart3D,
-    AreaChart,
-    Reference,
-    Series,
-)
 
 wb = Workbook()
 ws = wb.active
 
 from openpyxl import Workbook
-from openpyxl.chart import BarChart, Series, Reference
+from openpyxl.chart import BarChart, Reference
+
 wb = Workbook(write_only=True)
 ws = wb.create_sheet()
 rows = [
-        ('Number', 'Batch 1', 'Batch 2'),
-        (2, 10, 30),
-        (3, 40, 60),
-        (4, 50, 70),
-        (5, 20, 10),
-        (6, 10, 40),
-        (7, 50, 30),
-    ]
+    ('Number', 'Batch 1', 'Batch 2'),
+    (2, 10, 30),
+    (3, 40, 60),
+    (4, 50, 70),
+    (5, 20, 10),
+    (6, 10, 40),
+    (7, 50, 30),
+]
 for row in rows:
     ws.append(row)
 chart = BarChart()

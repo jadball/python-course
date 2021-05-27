@@ -6,10 +6,10 @@
 
 
 class Point:
-    def __init__(self, x0 = 0, y0 = 0):
+    def __init__(self, x0=0, y0=0):
         self.x = x0
         self.y = y0
-    
+
     # copy CTOR in C++
     def Copy(self):
         return Point(self.x, self.y)
@@ -18,7 +18,7 @@ class Point:
     def Reset(self, p):
         self.x = p.x
         self.y = p.y
-    
+
     def MoveBy(self, dx, dy):
         self.x += dx
         self.y += dy
@@ -26,15 +26,16 @@ class Point:
 
     def __str__(self):
         return "[" + str(self.x) + "," + str(self.y) + "]"
-        
+
+
 class Transaction:
     def __init__(self):
         self.participants = []
         self.snapshot = []
-        
+
     def Join(self, p):
         self.participants.append(p)
-        
+
     def Begin(self):
         # save copies in snapshot
         for participant in self.participants:
@@ -42,7 +43,7 @@ class Transaction:
 
     def Commit(self):
         del self.snapshot[:]
-        
+
     def Rollback(self):
         # restore copies from snapshot
         for participant, point in zip(self.participants, self.snapshot):
@@ -54,7 +55,7 @@ p1 = Point(10, 10)
 p2 = Point(20, 10)
 p3 = Point(30, 10)
 for p in (p1, p2, p3):
-    print(p, end=' ') 
+    print(p, end=' ')
 print(": Start")
 
 t = Transaction()
@@ -82,12 +83,11 @@ try:
     t.Begin()
     p1.MoveBy(99, 88)
     p2.MoveBy(99, 88)
-    p3.MoveBy(99, 88)   # raises exception
+    p3.MoveBy(99, 88)  # raises exception
     t.Commit()
 except Exception as e:
     t.Rollback();
 
 for p in (p1, p2, p3):
-    print(p, end=' ') 
+    print(p, end=' ')
 print(": Rollback")
-

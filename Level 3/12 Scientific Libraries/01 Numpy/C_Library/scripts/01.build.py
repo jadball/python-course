@@ -1,9 +1,4 @@
-import subprocess,os,sys
-import set_paths
-
+import os
 
 os.chdir("../src")
 os.system("python setup.py -v build_ext")
-
-
-

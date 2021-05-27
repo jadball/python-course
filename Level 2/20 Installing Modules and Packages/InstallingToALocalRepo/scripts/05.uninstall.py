@@ -1,4 +1,3 @@
-import os, shutil
-import setPath
+import os
 
 os.system("pip uninstall -y mymodule")

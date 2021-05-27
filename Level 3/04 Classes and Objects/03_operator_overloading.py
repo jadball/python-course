@@ -1,4 +1,4 @@
-class Time:    
+class Time:
     def __init__(self, hrs, min):
         self.hrs = hrs
         self.min = min
@@ -14,23 +14,23 @@ class Time:
             hrs = hrs + 1
             min = min - 60
         return Time(hrs, min)
-    
+
     # called if Time is on the rhs
     def __radd__(self, lhs):
         return self + lhs
-    
+
     # called for +=
     def __iadd__(self, other):
         self = self + other
         return self
-    
+
     # used by print
     def __str__(self):
         return "Time is: " + str(self.hrs) + " hrs," + str(self.min) + " mins"
 
 
-t1 = Time(5,30)
-t2 = Time(3,30)
+t1 = Time(5, 30)
+t2 = Time(3, 30)
 
 t3 = t1 + t2
 print(t3)
@@ -38,19 +38,17 @@ print(t3)
 t3 = t1 + 42
 print(t3)
 
-t3 = 27 + t1        # t1.__radd__(27)
+t3 = 27 + t1  # t1.__radd__(27)
 print(t3)
 
 t1 += t3
 print(t3)
 
-t1 += 33            # t1.__iadd__(33)
+t1 += 33  # t1.__iadd__(33)
 print(t3)
 
 try:
     t3 = t1 + "two mins"
     print(t3)
 except Exception as e:
-    print(e)    
-
-
+    print(e)

@@ -1,11 +1,9 @@
-from cryptography.hazmat.backends import default_backend  
-from cryptography.hazmat.primitives.asymmetric import padding  
-from cryptography.hazmat.primitives import hashes  
-from cryptography.hazmat.primitives.serialization import load_pem_private_key  
-from cryptography.hazmat.primitives.serialization import load_pem_public_key  
-from cryptography.hazmat.primitives import serialization
-  
-  
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.asymmetric import padding
+from cryptography.hazmat.primitives.serialization import load_pem_private_key
+from cryptography.hazmat.primitives.serialization import load_pem_public_key
+
 # 1. Alice encrypts her message with the Bob’s public key
 # 2. Alice signs her message with her private key
 ##     5. Maria has everything she needs to send her secret message to me now:
@@ -13,19 +11,19 @@ from cryptography.hazmat.primitives import serialization
 ##     7. Last resort, I should check the message origin to determine the identity of message emisor:
 
 
-plaintextMessage = "This is a message from alice.".encode()  
-bobPubKey = load_pem_public_key(open('keys/bob_public_key.pem', 'rb').read(),default_backend())  
-ciphertext = bobPubKey.encrypt(  
-    plaintextMessage,  
-    padding.OAEP(  
-            mgf=padding.MGF1(algorithm=hashes.SHA256()),  
-            algorithm=hashes.SHA256(),  
-            label=None  
-  )  
-)  
+plaintextMessage = "This is a message from alice.".encode()
+bobPubKey = load_pem_public_key(open('keys/bob_public_key.pem', 'rb').read(), default_backend())
+ciphertext = bobPubKey.encrypt(
+    plaintextMessage,
+    padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=None
+    )
+)
 
 encryptedpass = "alices_password".encode()
-alicePrivKey = load_pem_private_key(open('keys/alice_private_key.pem', 'rb').read(),encryptedpass,default_backend())  
+alicePrivKey = load_pem_private_key(open('keys/alice_private_key.pem', 'rb').read(), encryptedpass, default_backend())
 signed_message = alicePrivKey.sign(
     ciphertext,
     padding.PSS(
@@ -44,8 +42,7 @@ f = open('out/signed_message', 'wb')
 f.write(signed_message)
 f.close()
 
-  
-# deccryptedMessage = alicePrivKey.decrypt(  
+# deccryptedMessage = alicePrivKey.decrypt(
 #     ciphertext,  
 #     padding.OAEP(  
 #             mgf=padding.MGF1(algorithm=hashes.SHA256()),  
@@ -54,4 +51,3 @@ f.close()
 #   )  
 # )  
 # print(deccryptedMessage.decode(encoding="utf-8"))
-

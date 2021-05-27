@@ -1,9 +1,9 @@
-from ReadFile import readFile
-from bs4 import BeautifulSoup, Tag
+from bs4 import BeautifulSoup
 
+from ReadFile import readFile
 
 doc = readFile("xml/book.xml")
-soup =  BeautifulSoup(doc, features='html5lib')
+soup = BeautifulSoup(doc, features='html5lib')
 
 # replace all authors with new tags of the form:
 #    <newTag id="5" class="myclass">
@@ -24,6 +24,3 @@ print(soup.prettify())
 # mylist = soup2.find_all('li')
 # mylist[i]['class'] = 'active'
 1
-    
-
-

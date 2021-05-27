@@ -22,9 +22,8 @@ cursor.execute(sql)
 
 connection = getConnection()
 cursor = connection.cursor(buffered=True)
-args = ('Charles', 1000.0, 0.0) # 0.0 is to hold value of the OUT parameter
+args = ('Charles', 1000.0, 0.0)  # 0.0 is to hold value of the OUT parameter
 result = cursor.callproc('PYTHON.INCREASE_SALARY', args)
 connection.commit()
 
 print(f"Charles' new salary: {result[2]}")
-

@@ -1,8 +1,6 @@
-from kivy.uix.label import Label
-from kivy.properties import ListProperty
-
 from kivy.factory import Factory
 from kivy.lang import Builder
+from kivy.uix.label import Label
 
 Builder.load_string("""
 <LabelB>:
@@ -17,7 +15,10 @@ Builder.load_string("""
       size: self.size
 """)
 
+
 class LabelB(Label):
-  #bcolor = ListProperty([1,1,1,1])
-  pass
+    # bcolor = ListProperty([1,1,1,1])
+    pass
+
+
 Factory.register('MyLabelB', module='LabelB')

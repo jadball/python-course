@@ -6,8 +6,8 @@ when the element in the first array is odd.
 '''
 import numpy as np
 
-a = np.arange(10,50,3)
-b = np.arange(100,114)
+a = np.arange(10, 50, 3)
+b = np.arange(100, 114)
 
-difference = np.where(a%2, a, b)
+difference = np.where(a % 2, a, b)
 print(difference)

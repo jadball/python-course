@@ -9,4 +9,3 @@ WIND_df = pd.read_csv("wtk_site_metadata.csv")
 print(WIND_df.head(5))
 print(WIND_df.sample(5))
 print(WIND_df.tail(5))
-

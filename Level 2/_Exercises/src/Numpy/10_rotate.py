@@ -6,8 +6,15 @@ import numpy as np
 
 a = np.arange(10, 40).reshape(3, 10)
 
-a = np.rot90(a); print(a); print()
-a = np.rot90(a); print(a); print()
-a = np.rot90(a); print(a); print()
-a = np.rot90(a); print(a); print()
-
+a = np.rot90(a);
+print(a);
+print()
+a = np.rot90(a);
+print(a);
+print()
+a = np.rot90(a);
+print(a);
+print()
+a = np.rot90(a);
+print(a);
+print()

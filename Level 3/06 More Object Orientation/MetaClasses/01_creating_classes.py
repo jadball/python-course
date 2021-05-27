@@ -10,7 +10,6 @@
 #    'dict': A dictionary of the attributes of the class
 
 
-
 ############################################################
 # conventional class definition
 
@@ -21,23 +20,25 @@ class TestA:
     def printX(self):
         print(self.x)
 
+
 ############################################################
 # alternative way to define a class
 
 def __init__(self, x):
     self.x = x
 
+
 def printX(self):
     print(self.x)
+
 
 className = 'TestB'
 bases = (object,)
 dictionary = {
-              '__init__': __init__, 
-              'printX'  : printX
-             }
+    '__init__': __init__,
+    'printX': printX
+}
 TestB = type(className, bases, dictionary)
-
 
 ############################################################
 # main
@@ -47,8 +48,5 @@ ta.printX()
 
 tb = TestB(10)
 tb.printX()
-
-
-
 
 1

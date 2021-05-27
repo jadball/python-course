@@ -1,11 +1,12 @@
 import itertools
 
+
 # define a class that overloads the [] operator using __getitem__
 # and uses the Ellipses construct (...)
 class mylist(object):
     def __init__(self, theList):
         self.theList = theList
-        
+
     def __getitem__(self, items):
         if isinstance(items, slice):
             theSlice = items
@@ -24,8 +25,9 @@ class mylist(object):
             flattenedList = list(itertools.chain.from_iterable(result))
             return flattenedList
 
+
 # define slices
-mySlice = slice(3,9,2)
+mySlice = slice(3, 9, 2)
 print(mySlice)
 
 # define lists
@@ -36,5 +38,3 @@ print((myList[mySlice]))
 c = mylist(list(range(10, 30)))
 print((c[10:13]))
 print((c[10:13, ..., 5:7, ..., -2]))
-
-

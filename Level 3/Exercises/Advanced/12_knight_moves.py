@@ -10,33 +10,29 @@ every square on a chess board.
 
 '''
 
-import numpy as np
 import random
+
+import numpy as np
 
 
 def generateNewPosition():
-    possibleMove = np.array([(-1,2),(+1,2),(-1,-2),(-1,2),(-2,-1),(-2,1),(2,-1),(2,1)])
+    possibleMove = np.array([(-1, 2), (+1, 2), (-1, -2), (-1, 2), (-2, -1), (-2, 1), (2, -1), (2, 1)])
     position = np.array((2, 3))
     yield position
-    while(True):
+    while (True):
         n = random.getrandbits(3)
         nextTry = possibleMove[n] + position
         if np.amax(nextTry) < 8 and np.amin(nextTry) >= 0:
             position = nextTry
         yield position
-        
 
-board = np.zeros((8,8), dtype=int)
+
+board = np.zeros((8, 8), dtype=int)
 
 g = generateNewPosition()
 
 for move in range(10000):
     move = next(g)
-    board[move[0],move[1]] = 1
-    
-print(board)
+    board[move[0], move[1]] = 1
 
-    
-    
-    
-    
+print(board)

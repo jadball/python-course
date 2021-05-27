@@ -7,9 +7,11 @@
 import numpy as np
 
 # create array
-a = np.arange(24); print(a)
+a = np.arange(24);
+print(a)
 # reshape it
-b = a.reshape(2,3,4); print(b)
+b = a.reshape(2, 3, 4);
+print(b)
 a[13] = 99
 print(a)
 print(b)

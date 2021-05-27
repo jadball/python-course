@@ -1,4 +1,5 @@
-import zipfile, tarfile, os, subprocess
+import os
+import zipfile
 
 os.chdir("out")
 

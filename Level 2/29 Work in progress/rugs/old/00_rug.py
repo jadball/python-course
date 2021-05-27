@@ -10,20 +10,21 @@ The Numpy arrays corresponding to the images are saved in ".npy" files
   to be used by "00_combine_rugs.py"
 '''
 
-import numpy as np
+import re
 import sys
-import re
+
 import matplotlib.pyplot as plt
-import re
-from scipy import ndimage
-plt.subplots(dpi=72*2)
+import numpy as np
+
+plt.subplots(dpi=72 * 2)
 np.set_printoptions(threshold=sys.maxsize)
 
-FILENAME="rugs/rug5.norm"
+FILENAME = "rugs/rug5.norm"
 TYPE = 1
-figure = ""     # TBD
-COLS = 0        # TBD
-FLIP = ""       # TBD
+figure = ""  # TBD
+COLS = 0  # TBD
+FLIP = ""  # TBD
+
 
 #
 # grey          (d) dark brown
@@ -47,36 +48,47 @@ def convertArrayToColor(data):
         for c in range(cols):
             ch = data[r][c][0]
             if TYPE == "WOOL":
-                    if ch == 'd': data[r][c] = [101,  67,  33]
-                    if ch == 'o': data[r][c] = [255, 165,   0]
-                    if ch == 'p': data[r][c] = [255, 182, 193]
-                    if ch == 'l': data[r][c] = [152, 251, 152]
-                    if ch == 'b': data[r][c] = [245, 245, 220]
-                    if ch == 'w': data[r][c] = [255, 255, 255]
-                    if ch == 'g': data[r][c] = [ 34, 139,  34]
-                    if ch == 'y': data[r][c] = [255, 255,   0]
-                    if ch == 't': data[r][c] = [  0,   0, 255]
-                    if ch == 'm': data[r][c] = [165,  42,  42]
-                    if ch == 'x': data[r][c] = [  0,   0,   0] # black for don't know
+                if ch == 'd': data[r][c] = [101, 67, 33]
+                if ch == 'o': data[r][c] = [255, 165, 0]
+                if ch == 'p': data[r][c] = [255, 182, 193]
+                if ch == 'l': data[r][c] = [152, 251, 152]
+                if ch == 'b': data[r][c] = [245, 245, 220]
+                if ch == 'w': data[r][c] = [255, 255, 255]
+                if ch == 'g': data[r][c] = [34, 139, 34]
+                if ch == 'y': data[r][c] = [255, 255, 0]
+                if ch == 't': data[r][c] = [0, 0, 255]
+                if ch == 'm': data[r][c] = [165, 42, 42]
+                if ch == 'x': data[r][c] = [0, 0, 0]  # black for don't know
             if TYPE == "CANVAS":
-                    if ch == 'g': data[r][c] = [101,  67,  33]
-                    elif ch == 'p': data[r][c] = [255, 165,   0]
-                    elif ch == 'o': data[r][c] = [255, 182, 193]
-                    elif ch == 'l': data[r][c] = [152, 251, 152]
-                    elif ch == 'b': data[r][c] = [245, 245, 220]
-                    elif ch == 'w': data[r][c] = [255, 255, 255]
-                    elif ch == 's': data[r][c] = [ 34, 139,  34]
-                    elif ch == 'y': data[r][c] = [255, 255,   0]
-                    elif ch == 't': data[r][c] = [  0,   0, 255]
-                    elif ch == 'c': data[r][c] = [165,  42,  42]
-                    elif ch == 'x':
-                        data[r][c] = [  0,   0,   0] # black for don't know
-                    else:
-                        print(r, c)
+                if ch == 'g':
+                    data[r][c] = [101, 67, 33]
+                elif ch == 'p':
+                    data[r][c] = [255, 165, 0]
+                elif ch == 'o':
+                    data[r][c] = [255, 182, 193]
+                elif ch == 'l':
+                    data[r][c] = [152, 251, 152]
+                elif ch == 'b':
+                    data[r][c] = [245, 245, 220]
+                elif ch == 'w':
+                    data[r][c] = [255, 255, 255]
+                elif ch == 's':
+                    data[r][c] = [34, 139, 34]
+                elif ch == 'y':
+                    data[r][c] = [255, 255, 0]
+                elif ch == 't':
+                    data[r][c] = [0, 0, 255]
+                elif ch == 'c':
+                    data[r][c] = [165, 42, 42]
+                elif ch == 'x':
+                    data[r][c] = [0, 0, 0]  # black for don't know
+                else:
+                    print(r, c)
     return data
 
+
 def processLine(line):
-    processedLine = np.empty((0,1), dtype=object)
+    processedLine = np.empty((0, 1), dtype=object)
     number = ""
     for c in line:
         if c in '0123456789':
@@ -86,12 +98,13 @@ def processLine(line):
             n = int(number)
             number = ""
             # if repeat count
-            for _ in range(n-1):  # already printed one character
+            for _ in range(n - 1):  # already printed one character
                 processedLine = np.vstack([processedLine, [lastChar]])
         if c in 'abcdefghijklmnopqrstuvwxyz':
             lastChar = c
             processedLine = np.vstack([processedLine, [c]])
     return processedLine
+
 
 def removeCommentsAndEmptyLines(f):
     global FIG, COLS, TYPE, FLIP
@@ -111,7 +124,7 @@ def removeCommentsAndEmptyLines(f):
     return result
 
 
-try: 
+try:
     f = open(FILENAME, "r")
     lines = removeCommentsAndEmptyLines(f)
     try:
@@ -128,8 +141,7 @@ except IOError as e:
 data = convertArrayToColor(data)
 data = data.astype(int)
 
-
-data = np.transpose(data, axes=(1,0,2))
+data = np.transpose(data, axes=(1, 0, 2))
 if FLIP == "TRUE":
     data = np.flip(data, axis=0)
 print(data.shape)

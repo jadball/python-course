@@ -1,13 +1,11 @@
-import kivy
-from kivy.uix.gridlayout import GridLayout
-from kivy.graphics import Color, Rectangle, Line
-
 from kivy.app import App
+from kivy.graphics import Color
 from kivy.lang import Builder
+from kivy.uix.gridlayout import GridLayout
 
 from LabelB import LabelB
-from LabelC import LabelC
 from LabelD import LabelD
+
 
 # Builder.load_string("""
 # <MyGrid>:
@@ -26,27 +24,29 @@ class MyGrid(GridLayout):
         super(GridLayout, self).__init__(**kwargs)
         with self.canvas.before:
             Color(1, 0, 0, 1)
-            
+
+
 class TheApp(App):
     def build(self):
         self.title = "Subclassing Button"
         Builder.load_file('widgetst.kv')
         grid = MyGrid(rows=3)
-#         d1 = LabelD()
-#         d1.bcolor = (1,0,0,1)
+        #         d1 = LabelD()
+        #         d1.bcolor = (1,0,0,1)
 
-        b  = LabelB()
-#        b.bcolor = (0,1,1,1)
+        b = LabelB()
+        #        b.bcolor = (0,1,1,1)
         grid.add_widget(b)
 
-        b  = LabelB()
-#        b.bcolor = (1,1,0,1)
+        b = LabelB()
+        #        b.bcolor = (1,1,0,1)
         grid.add_widget(b)
-        
-        d  = LabelD()
-#        d.bcolor = (1,0,1,1)
+
+        d = LabelD()
+        #        d.bcolor = (1,0,1,1)
         grid.add_widget(d)
 
         return grid
+
 
 TheApp().run()

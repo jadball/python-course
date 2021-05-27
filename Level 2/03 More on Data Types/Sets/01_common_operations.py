@@ -16,5 +16,4 @@ if "Wednesday" in myset: print("member")
 myset.remove("Wednesday")
 if "Wednesday" not in myset: print("not a member")
 
-
 1

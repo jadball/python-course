@@ -1,6 +1,5 @@
 from itertools import *
 
-
 # these functions return infinite iterators
 # once called they iterate forever
 
@@ -26,6 +25,6 @@ try:
     print(next(iter))
     print(next(iter))
     print(next(iter))
-    print(next(iter))   # this fails
+    print(next(iter))  # this fails
 except:
     print("too many iterations")

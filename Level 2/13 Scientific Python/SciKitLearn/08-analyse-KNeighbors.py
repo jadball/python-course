@@ -1,18 +1,20 @@
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn import metrics
-from sklearn.model_selection import train_test_split
-from sklearn.datasets import load_iris
 import matplotlib.pyplot as plt
 import numpy as np
+from sklearn import metrics
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
 
 # load iris data set
 iris = load_iris()
 X = iris.data
 Y = iris.target
 
+
 def set_title(title):
     figure = plt.gcf()
     figure.canvas.set_window_title(title)
+
 
 def predict(K, test_size):
     estimator = KNeighborsClassifier(n_neighbors=K)
@@ -24,6 +26,7 @@ def predict(K, test_size):
     prediction = estimator.predict(X_test)
     # compare with actual
     return metrics.accuracy_score(Y_test, prediction)
+
 
 # vary K
 results = []
@@ -46,5 +49,3 @@ plt.plot(np.arange(0.1, 1.0, 0.1), results)
 plt.xlabel('Value of test_size (K=10)')
 plt.ylabel('Testing Accuracy')
 plt.show()
-
-

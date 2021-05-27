@@ -9,22 +9,24 @@ class BankAccount:
         self.accountName = accountName
         self.balance = 0.0
         self.overdraft = 0.0
-    
+
     def deposit(self, amount):
         self.balance += amount
-        
+
     def withdraw(self, amount):
         newBalance = self.balance - amount
         if newBalance < self.overdraft: raise Overdrawn()
         self.balance -= amount
-    
+
     def setOverdraft(self, amount):
         self.overdraft = amount
-        
+
     def getBalance(self):
         return self.balance
 
+
 class Overdrawn(Exception): pass
+
 
 try:
     johnsAccount = BankAccount("johns")
@@ -36,6 +38,3 @@ try:
     johnsAccount.withdraw(2000.00)
 except Overdrawn:
     print("account would be overdrawn")
-
-
-

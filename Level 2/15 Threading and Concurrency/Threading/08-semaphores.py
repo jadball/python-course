@@ -4,11 +4,9 @@
 #
 ############################################################
 
-from threading import Thread
-from threading import BoundedSemaphore
-import random
 import time
-import sys
+from threading import BoundedSemaphore
+from threading import Thread
 
 
 class MyClass:
@@ -21,7 +19,6 @@ class MyClass:
         semaphore.release()
 
 
-
 semaphore = BoundedSemaphore(3)
 
 m1 = MyClass()
@@ -32,13 +29,13 @@ m5 = MyClass()
 m6 = MyClass()
 m7 = MyClass()
 
-t1 = Thread(target = m1, args = ("1",))
-t2 = Thread(target = m2, args = ("2",))
-t3 = Thread(target = m3, args = ("3",))
-t4 = Thread(target = m4, args = ("4",))
-t5 = Thread(target = m5, args = ("5",))
-t6 = Thread(target = m6, args = ("6",))
-t7 = Thread(target = m7, args = ("7",))
+t1 = Thread(target=m1, args=("1",))
+t2 = Thread(target=m2, args=("2",))
+t3 = Thread(target=m3, args=("3",))
+t4 = Thread(target=m4, args=("4",))
+t5 = Thread(target=m5, args=("5",))
+t6 = Thread(target=m6, args=("6",))
+t7 = Thread(target=m7, args=("7",))
 
 t1.start()
 t2.start()

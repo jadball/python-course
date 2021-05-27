@@ -4,13 +4,11 @@ class Point:
         self.y = y0
 
     def get_distance(self):
-        return (self.x ** 2 + self.y **2) **0.5
+        return (self.x ** 2 + self.y ** 2) ** 0.5
 
     def moveBy(self, dx, dy):
         self.x += dx
         self.y += dy
-    
+
     def display(self):
         return str(self.x) + "," + str(self.y)
-        
-    

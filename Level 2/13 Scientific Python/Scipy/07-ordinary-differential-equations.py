@@ -4,9 +4,9 @@
 #
 ############################################################
 
-from numpy import *
-from scipy.integrate import odeint
 from math import *
+
+from scipy.integrate import odeint
 
 # evaluate dy/dt = y
 # for initial value of y = y0
@@ -18,14 +18,10 @@ t1 = 6
 # where     y0 = e**(t0 + k)
 #  =>       k  = log(y0) - t0
 print("calculated result")
-print(odeint(lambda y,t:y, y0, [t0, t1]))
+print(odeint(lambda y, t: y, y0, [t0, t1]))
 
 print("analytical result")
-k = log(y0) - t0; print([ y0, e**(t1 + k)])
-
-
-
-
-
+k = log(y0) - t0;
+print([y0, e ** (t1 + k)])
 
 1

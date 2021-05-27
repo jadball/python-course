@@ -11,4 +11,3 @@ import sys
 # run child process and check return code
 result = subprocess.run([sys.executable, "child1.py"])
 print("Child returned:", result.returncode)
-

@@ -11,16 +11,17 @@
 def callback():
     # toggle the state of the exit button
     buttonExit = callback.buttonExit
-    
-    if(buttonExit.cget("state") == "disabled"):
+
+    if (buttonExit.cget("state") == "disabled"):
         title = "Disable Exit"
-        buttonExit.configure(state = "normal")
+        buttonExit.configure(state="normal")
     else:
         title = "Enable Exit"
-        buttonExit.configure(state = "disabled")
+        buttonExit.configure(state="disabled")
 
 
 from tkinter import *
+
 
 def main():
     root = Tk()
@@ -31,23 +32,20 @@ def main():
     draw(mainframe)
     root.mainloop()
 
+
 def draw(frame):
-    buttonExit = Button(frame, 
-                        text = "Exit",
-                        activebackground = "red", 
-                        command = lambda : exit())
+    buttonExit = Button(frame,
+                        text="Exit",
+                        activebackground="red",
+                        command=lambda: exit())
     title = StringVar()
     title.set("Disable Exit")
-    buttonToggle = Button(frame, 
-                          textvariable = title, 
-                          command = callback)
+    buttonToggle = Button(frame,
+                          textvariable=title,
+                          command=callback)
     buttonToggle.pack()
     buttonExit.pack()
     callback.buttonExit = buttonExit
 
 
 main()
-
-
-
-

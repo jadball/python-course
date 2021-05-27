@@ -1,14 +1,14 @@
 week = {
-        'mon': 'Monday', 
-        'tue': 'Tuesday',
-        'wed': 'Wednesday',
-        'thu': 'Thursday',
-        'fri': 'Friday'
-        }
+    'mon': 'Monday',
+    'tue': 'Tuesday',
+    'wed': 'Wednesday',
+    'thu': 'Thursday',
+    'fri': 'Friday'
+}
 weekend = {
-           'sat': 'Saturday',
-           'sun': 'Sunday'
-           }
+    'sat': 'Saturday',
+    'sun': 'Sunday'
+}
 
 # 1. using kwargs
 print({**week, **weekend})

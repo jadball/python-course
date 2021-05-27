@@ -13,7 +13,7 @@ try:
         outFile.write(line)
 except IOError as reason:
     print(reason)
-finally:        
+finally:
     if inFile: inFile.close()
     if outFile: outFile.close()
 

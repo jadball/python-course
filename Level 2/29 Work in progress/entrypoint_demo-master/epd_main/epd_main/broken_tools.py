@@ -4,4 +4,4 @@ import pkg_resources
 for ep in pkg_resources.iter_entry_points(group='epd_group_id'):
     globals()[ep.name] = ep.load()
 
-del(ep, pkg_resources)
+del (ep, pkg_resources)

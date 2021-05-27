@@ -16,5 +16,3 @@ print(s3)
 # use incorrect encoding
 s3 = b2.decode('utf-16')
 print(s3)
-
-

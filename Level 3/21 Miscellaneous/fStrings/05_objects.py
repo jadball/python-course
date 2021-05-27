@@ -13,16 +13,16 @@ class Point:
     def __format__(self, format_spec: str):
         if not format_spec or format_spec == "s":
             return str(self)
-        
+
         if format_spec == "r":
             return f"r:{self.x, self.y, self.z}"
         if format_spec == "w":
             return f"w:{self.x, self.y, self.z}"
+
+
 p = Point(1, 2, 3)
 print(f"{p!s}")
 print(f"{p!r}")
 print(f"{p:s}")
 print(f"{p:r}")
 print(f"{p:w}")
-
-

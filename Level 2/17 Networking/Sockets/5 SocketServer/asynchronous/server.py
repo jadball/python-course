@@ -4,14 +4,15 @@
 #
 ############################################################
 
-import socketserver
 import socket
+import socketserver
 import threading
+
 
 class MyRequestHandler(socketserver.StreamRequestHandler):
     def handle(self):
         try:
-            while(True):
+            while (True):
                 message = self.request.recv(100).rstrip()
                 message = message.decode("UTF-8")
                 print("SERVER: ", message)
@@ -22,15 +23,15 @@ class MyRequestHandler(socketserver.StreamRequestHandler):
         except socket.error as e:
             print("error ...")
 
-# specify THreadingMixIn first because otherwise it will override 
+
+# specify THreadingMixIn first because otherwise it will override
 # methods in TCPServer 
-class MyServer(socketserver.ThreadingMixIn, 
+class MyServer(socketserver.ThreadingMixIn,
                socketserver.TCPServer): pass
+
 
 server = MyServer(("localhost", 7001), MyRequestHandler)
 print("Server on port 7001")
 
 server_thread = threading.Thread(target=server.serve_forever)
 server_thread.start()
-
-

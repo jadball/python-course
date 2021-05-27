@@ -11,5 +11,5 @@ df = pd.read_csv("../MiniProject/wtk_site_metadata.csv")
 df = df[df['State'] == 'Rhode Island']
 df = df[['longitude', 'latitude']]
 df = df.reset_index()
-df.drop(['index'], axis = 1, inplace = True)
+df.drop(['index'], axis=1, inplace=True)
 print(f"Rhode Island dataframe: {df}")

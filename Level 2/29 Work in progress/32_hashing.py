@@ -1,6 +1,7 @@
 def h(s):
     h = "Abel".__hash__()
-    print(f"{h%100}", end=" ")
+    print(f"{h % 100}", end=" ")
+
 
 # h("Abel")
 # h("Adam")
@@ -25,6 +26,7 @@ def h(s):
 # h("Mary")
 h("Johnny")
 import sys
+
 print(sys.version)
 
 key = "Johnny"

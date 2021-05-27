@@ -1,8 +1,8 @@
-calc = lambda : {
-  '*': lambda : x * 5,
-  '+': lambda : x + 5,
-  '-': lambda : x - 5
-  }[op]()
+calc = lambda: {
+    '*': lambda: x * 5,
+    '+': lambda: x + 5,
+    '-': lambda: x - 5
+}[op]()
 
 op = '+'
 x = 100

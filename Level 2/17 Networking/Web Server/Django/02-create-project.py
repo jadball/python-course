@@ -1,9 +1,12 @@
-import sys, os
+import sys
+
 from single_step import s
+
 
 def windows():
     s('deltree src')
     s('md src')
+
 
 def unix():
     s('rm -rf src')

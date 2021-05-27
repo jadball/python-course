@@ -9,8 +9,10 @@ Write a function that rotates the values of 3 variables.  For example:
     # z is now 100
 """
 
+
 def Rotate(a, b, c):
     return b, c, a
+
 
 x = 100
 y = 200

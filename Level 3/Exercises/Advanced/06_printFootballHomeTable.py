@@ -7,10 +7,11 @@ def printHomeTable(lines, teams):
         stats, pts = getHomeResults(line)
         output = "{:24s}{:s}".format(team, stats)
         league.append([pts, output])
-    
-    league.sort(key=lambda entry:entry[0], reverse=True)
+
+    league.sort(key=lambda entry: entry[0], reverse=True)
     for pts, entry in league:
         print(entry)
+
 
 def readResultsFile(fileName):
     try:
@@ -20,6 +21,7 @@ def readResultsFile(fileName):
     except IOError as e:
         print(e)
 
+
 def getTeams(lines):
     teams = []
     for line in lines:
@@ -27,6 +29,7 @@ def getTeams(lines):
         team = data[0].strip()
         teams.append(team)
     return teams
+
 
 def getHomeResults(line):
     scores = line
@@ -41,12 +44,12 @@ def getHomeResults(line):
         p += 1
         f += home
         a += away
-        if home >  away: pts += 3; w += 1
+        if home > away: pts += 3; w += 1
         if home == away: pts += 1; d += 1
-        if home <  away: l += 1
+        if home < away: l += 1
     return "{:2d} {:2d} {:2d} {:2d} {:2d} {:2d} {:2d}".format(p, w, d, l, f, a, pts), pts
+
 
 lines = readResultsFile("resources/results_2014_15")
 teams = getTeams(lines)
-printHomeTable(lines, teams) 
-    
+printHomeTable(lines, teams)

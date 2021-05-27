@@ -6,12 +6,12 @@
 
 # set up a dictionary
 salary = {
- 		  "zak":   34000, 
-          "sara":  27000,
-          "pedro": 52000,
-          "kilas": 12500,
-          "zoe":   66000
-         }
+    "zak": 34000,
+    "sara": 27000,
+    "pedro": 52000,
+    "kilas": 12500,
+    "zoe": 66000
+}
 salary["sara"] = 28000
 salary["sara"] = None
 salary["george"] = 137000

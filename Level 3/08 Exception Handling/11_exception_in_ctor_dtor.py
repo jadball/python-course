@@ -9,7 +9,7 @@ class MyClass(object):
     def __init__(self):
         raise Exception("CTOR failed")
         print("end of CTOR")
-    
+
     # if the DTOR tries to throw, the exception is converted to a 
     # simple error message on stderr and the DTOR exits immediately 
     def __del__(self):
@@ -18,11 +18,12 @@ class MyClass(object):
 
 
 def f():
-    x = MyClass()   # DTOR called after this line
-    
+    x = MyClass()  # DTOR called after this line
+
+
 try:
     f()
 except Exception as e:
     print(e)
-    
+
 print("finished")

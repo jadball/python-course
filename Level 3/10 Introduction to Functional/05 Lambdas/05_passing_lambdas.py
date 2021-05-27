@@ -2,10 +2,7 @@
 f = lambda x, func: func(x)
 
 # invoke the lambda
-print(f(10, lambda x:x**2))
+print(f(10, lambda x: x ** 2))
 
 # an equivalent call
-print((lambda x:x**2)(10))
-
-
-
+print((lambda x: x ** 2)(10))

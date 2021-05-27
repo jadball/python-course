@@ -4,5 +4,3 @@ import subprocess
 # but be careful of shell injection
 
 subprocess.call("ls -l *.py", shell=True)
-
-

@@ -11,6 +11,8 @@ yields the rankings
 
 import numpy as np
 
-shape = (4,6)
-a = np.random.randint(low=10, high=100, size=shape); print(a)
-b = np.argsort(a, axis=None).reshape(shape); print(b)
+shape = (4, 6)
+a = np.random.randint(low=10, high=100, size=shape);
+print(a)
+b = np.argsort(a, axis=None).reshape(shape);
+print(b)

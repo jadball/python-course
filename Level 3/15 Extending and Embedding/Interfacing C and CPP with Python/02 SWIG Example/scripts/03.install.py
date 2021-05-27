@@ -1,7 +1,8 @@
-import subprocess,os,sys
-sys.path.append('../..')
-import set_paths
+import os
+import subprocess
+import sys
 
+sys.path.append('../..')
 
 os.chdir("../src")
 

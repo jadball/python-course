@@ -1,6 +1,6 @@
-import os, sys
-from PIL import Image
+import os
 
+from PIL import Image
 
 os.chdir("images")
 infile = "DSCN0639.JPG"

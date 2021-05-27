@@ -1,4 +1,5 @@
 import os
+
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
 os.makedirs("out", exist_ok=True)
@@ -15,7 +16,7 @@ for page in range(0, input.getNumPages()):
     print(outFileName)
     outputStream = open(outFileName, "wb")
     output.write(outputStream)
-    outputStream.close()    
+    outputStream.close()
 
 # create a set of text files using pdfs for individual pages
 for page in range(0, input.getNumPages()):
@@ -26,4 +27,3 @@ for page in range(0, input.getNumPages()):
     f = open(outFileName, "w")
     f.writelines(input.getPage(0).extractText())
     f.close()
-

@@ -7,9 +7,9 @@ scikitimage
 15 Threading and Concurrency
 '''
 
-import numpy as np
-from numpy import sin, cos, pi as π
 import matplotlib.pyplot as plt
+import numpy as np
+from numpy import sin, pi as π
 
 m = 1
 t = 0
@@ -19,13 +19,15 @@ dt = 0.01
 X = []
 T = []
 
-def force(x,v):
-    return sin(2*π*x)*v/x**2
-    
+
+def force(x, v):
+    return sin(2 * π * x) * v / x ** 2
+
+
 for n in np.arange(0, 100, 0.01):
     t = t + dt
-    F = force(x,v)
-    dv = F*dt/m
+    F = force(x, v)
+    dv = F * dt / m
     v = v + dv
     dx = v * dt
     x = x + dx
@@ -33,8 +35,7 @@ for n in np.arange(0, 100, 0.01):
     print(f"{t:.2f} {v:.2f} {x:.2f}")
     X.append(x)
     T.append(t)
-    
+
 plt.plot(T, X)
 plt.grid()
 plt.show()
-

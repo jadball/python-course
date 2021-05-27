@@ -5,7 +5,6 @@
 ############################################################
 
 from math import sqrt
- 
 
 try:
     x = int(input("Enter positive integer: "))
@@ -16,5 +15,3 @@ except Exception as e:
 else:
     print("sqrt() succeeded ...")
     print(root)
- 
-

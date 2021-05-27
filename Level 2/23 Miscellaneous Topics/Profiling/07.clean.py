@@ -1,4 +1,4 @@
-import os, shutil
+import shutil
 
 try:
     shutil.rmtree("html")

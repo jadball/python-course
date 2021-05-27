@@ -5,7 +5,7 @@
 ############################################################
 
 # successful read
-try: 
+try:
     f = open("data/hello.txt", "r")
     try:
         for line in f:
@@ -15,9 +15,8 @@ try:
 except IOError as e:
     print(e)
 
-
 # unsuccessful read
-try: 
+try:
     f = open("./data/unknown-file.txt", "r")
     try:
         for line in f:
@@ -26,4 +25,3 @@ try:
         f.close()
 except IOError as e:
     print(e)
-

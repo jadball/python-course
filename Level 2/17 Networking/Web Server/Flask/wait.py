@@ -1,11 +1,12 @@
-import time
 import socket
+import time
+
 
 def untilServerRunning(server, port):
     while True:
         try:
             s = socket.socket()
-            s.connect((server, port))        
+            s.connect((server, port))
         except:
             if s: s.close()
             time.sleep(1)

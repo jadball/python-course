@@ -1,5 +1,5 @@
 # any class with __len__ and __getitem__ is iterable
- 
+
 class Foo(object):
     def __len__(self):
         return 10
@@ -9,6 +9,6 @@ class Foo(object):
             raise IndexError
         return i
 
+
 for i in Foo():
-    print(i) 
-    
+    print(i)

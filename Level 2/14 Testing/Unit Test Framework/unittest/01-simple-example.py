@@ -1,5 +1,6 @@
-from Point import *
 import unittest
+
+from Point import *
 
 
 class testPoint(unittest.TestCase):
@@ -22,12 +23,12 @@ class testPoint(unittest.TestCase):
         """moveBy test(1)"""
         self.point.moveBy(5, 2)
         self.assertEqual("8,6", self.point.display())
-        
+
     def testMoveBy5and2version2(self):
         """moveBy test(2)"""
         self.point.moveBy(5, 2)
         self.assertEqual("8,7", self.point.display())
-        
+
     def testDistanceIs5(self):
         """distance test(1)"""
         self.assertTrue(5 == self.point.get_distance())

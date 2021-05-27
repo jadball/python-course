@@ -1,12 +1,13 @@
 '''
 Generate Spreadsheet
 '''
+import re
+
 import numpy as np
-import matplotlib.pyplot as plt
-from openpyxl import Workbook, load_workbook
-from openpyxl.styles import PatternFill
+import openpyxl
+from openpyxl import load_workbook
 from openpyxl.cell.cell import Cell
-import openpyxl, re
+from openpyxl.styles import PatternFill
 
 
 def getBaseCoords():
@@ -32,6 +33,7 @@ def getBaseCoords():
     finally:
         f.close()
 
+
 def copyNumpyArrayToSpreadsheet(baseRow, baseCol):
     fig = np.load(f"data/fig{RUG}.npy")
     print(f"data/fig{RUG}: shape of Numpy array: {fig.shape}, X={X},Y={Y}")
@@ -45,23 +47,25 @@ def copyNumpyArrayToSpreadsheet(baseRow, baseCol):
             value = f"{red:02X}{green:02X}{blue:02X}"
             z = Cell(ws, row=row, column=col).column_letter
             cellId = f"{z}{row}"
-            ws[cellId].fill = PatternFill(start_color=f"{value}", fill_type = "solid")
+            ws[cellId].fill = PatternFill(start_color=f"{value}", fill_type="solid")
+
 
 def getActiveWorkbookAndSheet():
     try:
         wb = load_workbook(filename=f'data/{FILENAME}.xlsx')
     except:
-        wb = openpyxl.Workbook() 
+        wb = openpyxl.Workbook()
 
     return wb, wb.active
+
 
 def setRowAndColumnSizes():
     SCALE_FACTOR = 0.5
     for col in range(1, 1000):
         letter = Cell(ws, row=1, column=col).column_letter
-        ws.column_dimensions[letter].width = 4*SCALE_FACTOR
+        ws.column_dimensions[letter].width = 4 * SCALE_FACTOR
     for row in range(1, 1000):
-        ws.row_dimensions[row].height = 21.0*SCALE_FACTOR
+        ws.row_dimensions[row].height = 21.0 * SCALE_FACTOR
 
 
 def processData():
@@ -69,9 +73,10 @@ def processData():
     copyNumpyArrayToSpreadsheet(baseRow, baseCol)
     wb.save(f'data/{FILENAME}.xlsx')
 
-FILENAME="MASTER"
+
+FILENAME = "MASTER"
 wb, ws = getActiveWorkbookAndSheet()
 setRowAndColumnSizes()
 
 for RUG in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11):
-     processData()
+    processData()

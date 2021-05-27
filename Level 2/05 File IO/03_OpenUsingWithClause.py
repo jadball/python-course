@@ -19,5 +19,3 @@ try:
             print(line, end=" ")
 except IOError as e:
     print(e)
-
-

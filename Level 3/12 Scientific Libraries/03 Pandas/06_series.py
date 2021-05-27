@@ -1,11 +1,11 @@
 import pandas as pd
-import numpy as np
 
 
 def title(t):
     print("\n")
     print(t)
     print("=" * len(t))
+
 
 pd.set_option('display.width', 1000)
 pd.set_option('display.precision', 2)
@@ -19,11 +19,11 @@ print(s2, end="\n\n")
 
 ##########
 title("create a series from a dict")
-d = { "john"  : 34000, 
-      "sara"  : 27000,
-      "pedro" : 52000,
-      "tim"   : None,
-      "zoe"   : 66000 }
+d = {"john": 34000,
+     "sara": 27000,
+     "pedro": 52000,
+     "tim": None,
+     "zoe": 66000}
 
 salaries = pd.Series(d)
 print(salaries)

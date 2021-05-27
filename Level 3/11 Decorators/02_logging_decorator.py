@@ -5,7 +5,7 @@
 ############################################################
 
 import logging
-import sys
+
 
 # log(logging.WARNING)(square)(4)
 #     returns logit(square)(4)
@@ -16,26 +16,33 @@ def log(level):
     def logit(fn):
         def enhance(x):
             message = f"calling {fn.__name__}({x})"
-            if(level == logging.DEBUG):    logging.debug(message)
-            if(level == logging.INFO):     logging.info(message)
-            if(level == logging.WARNING):  logging.warning(message)
-            if(level == logging.ERROR):    logging.error(message)
-            if(level == logging.CRITICAL): logging.critical(message)
+            if (level == logging.DEBUG):    logging.debug(message)
+            if (level == logging.INFO):     logging.info(message)
+            if (level == logging.WARNING):  logging.warning(message)
+            if (level == logging.ERROR):    logging.error(message)
+            if (level == logging.CRITICAL): logging.critical(message)
             return fn(x)
+
         return enhance
+
     return logit
- 
+
 
 @log(logging.WARNING)
-def square(x): 
+def square(x):
     return x * x
+
+
 @log(logging.DEBUG)
 def cube(x):
     return x * x * x
+
+
 @log(logging.CRITICAL)
 def quad(x):
     return x * x * x * x
-    
+
+
 # main program
 # as no logfile specified, use the console
 # logging.basicConfig(level=logging.DEBUG)

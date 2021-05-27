@@ -8,7 +8,9 @@
 def printWithPrecision(width, precision):
     def printIt(x):
         print("{2:{0}.{1}f}".format(width, precision, x))
+
     return printIt
+
 
 print10dot3 = printWithPrecision(15, 6)
 print8dot2 = printWithPrecision(8, 1)

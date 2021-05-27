@@ -12,20 +12,19 @@ import numpy as np
 # cycles through all N dimensions.
 
 # set up arrays to be used for 3D grid
-a = np.array([2,5,7])
-b = np.array([4,8,1])
-c = np.array([3,5,2])
+a = np.array([2, 5, 7])
+b = np.array([4, 8, 1])
+c = np.array([3, 5, 2])
 
-ax,bx,cx = np.ix_(a,b,c)
+ax, bx, cx = np.ix_(a, b, c)
 print(ax)
 print(bx)
 print(cx)
-result = ax * (bx + cx) # uses broadcasting to become a 3 x 3 array
+result = ax * (bx + cx)  # uses broadcasting to become a 3 x 3 array
 print(result)
 
 # then these are equivalent
-print(result[1,2,1])
+print(result[1, 2, 1])
 print(a[1] * (b[2] + c[1]))
 
 1
-

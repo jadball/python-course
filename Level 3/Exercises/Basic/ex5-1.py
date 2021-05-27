@@ -9,15 +9,13 @@ where the input is not an integer.
 try:
     x = int(input("Enter an integer for factorial calculation: "))
     if x > 10: raise Exception(f"number too large: {x}")
-    if x <  2: raise Exception(f"number too small: {x}")
+    if x < 2: raise Exception(f"number too small: {x}")
 except Exception as e:
     print(e)
     exit(1)
 
 result = 1
-for i in range(1, x+1):
+for i in range(1, x + 1):
     result = result * i
-    
+
 print(f"Factorial of {x} = {result}")
-
-

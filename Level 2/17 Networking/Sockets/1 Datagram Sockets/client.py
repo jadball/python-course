@@ -8,6 +8,7 @@
 # this is not really a client - it sends first and receives later
 
 import socket
+
 mySocket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # send a message to the server
